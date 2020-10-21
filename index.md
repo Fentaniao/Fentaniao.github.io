@@ -16,4 +16,4 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 
 - Tel: 123456
 
-	See the detail in About page: https://fentaniao.github.io/myhomepages/about.html
+	See the detail in About page: https://fentaniao.github.io/about.html
