@@ -1,4 +1,10 @@
-## Welcome to GitHub Pages
+---
+title:"Ruiyang Zhou' Homepages"
+---
+
+
+
+## Welcome to Ruiyang Zhou' Homepages!
 
 You can use the [editor on GitHub](https://github.com/Fentaniao/myhomepages/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
