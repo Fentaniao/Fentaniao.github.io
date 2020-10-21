@@ -8,7 +8,7 @@ description: #Here is Ruiyang Zhou' Homepages
 # https://github:com/pages-themes/cayman
 theme: jekyll-theme-cayman
 # "true" or "false" to indicate whether to provide a download URL
-show_downloads: "true"
+#show_downloads: "true"
 # Your Google Analytics tracking ID
 #google_analytics:
 
