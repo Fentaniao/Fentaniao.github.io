@@ -10,7 +10,7 @@ Once I log in my email, I will check your email.
 
 ## Comments
 
-[Click here for comments]({% link pages/comment.md %})
+[Commit Comments]({% link pages/comment.md %})
 
 ## Friendly Link
 
