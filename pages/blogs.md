@@ -1,4 +1,4 @@
-# All Blogs
+# All Blogs<span id="jump"> </span>
 
 ------
 

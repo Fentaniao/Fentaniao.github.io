@@ -1,8 +1,8 @@
-# Welcome
+# Welcome<span id="jump"> </span>
 
 ------
 
-<span id="jump"> </span>
+
 
 ## An Introduction to Myself
 
@@ -48,6 +48,8 @@ A brilliant student in Fuzhou University
 
 See the detail in [About Page](https://fentaniao.github.io/about.html).
 
+[Return to the top](#jump).
+
 ------
 
 > This blog is designed by Ruiyang Zhou.
@@ -56,4 +58,3 @@ See the detail in [About Page](https://fentaniao.github.io/about.html).
 
 ------
 
-[点击跳转](#jump)
