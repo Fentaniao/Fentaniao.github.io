@@ -33,14 +33,12 @@ A brilliant student in Fuzhou University
 
 ## My Doc
 
-{% for tag in site.tags %}
-  <h3>{{ tag[0] }}</h3>
-  <ul>
-    {% for post in tag[1] %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-{% endfor %}
+ <ul> {% for tag in site.tags %}  <h3>{{ tag[0] }}</h3>  <ul>    {% for post in tag[1] %}      <li><a href="{{ post.url }}">{{ post.title }}</a></li>    {% endfor %}  </ul> {% endfor %}
+
+
+## My Doc2
+
+{% for tag in site.tags %}  <h3>{{ tag[0] }}</h3>  <ul>    {% for post in tag[1] %}      <li><a href="{{ post.url }}">{{ post.title }}</a></li>    {% endfor %}  </ul> {% endfor %}
 
 
 
