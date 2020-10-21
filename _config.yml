@@ -1,6 +1,50 @@
 # Site settings
+
+# Welcome to Beautiful Jekyll!
+# This config file is meant for settings that affect your entire website. When you first
+# set up your website you should go through all these settings and edit them, but after
+# the initial set up you won't need to come back to this file often.
+
+
+# --- Required options --- #
+
+# Name of website
 title: Ruiyang Zhou' Homepages
-email: ruiyangzhou@outlook.com
+
+# Your name to show in the footer
+author: Ruiyang Zhou
+
+
+# --- List of links in the navigation bar --- #
+
+navbar-links:
+  About Me: "aboutme"
+  Resources:
+    - Beautiful Jekyll: "https://beautifuljekyll.com"
+    - Learn markdown: "https://www.markdowntutorial.com/"
+  Author's home: "https://deanattali.com"
+
+# --- Logo --- #
+
+# Image to show in the navigation bar - works best with a square image
+# Remove this parameter if you don't want an image in the navbar
+# avatar: "/assets/img/avatar-icon.png"
+
+# By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
+# round-avatar: true
+
+# If you want to have an image logo in the top-left corner instead of having the title of the website,
+# then specify the following parameter
+#title-img: /path/to/image
+
+
+# --- Footer social media links --- #
+
+# Select the social network links that you want to show in the footer.
+# Uncomment the links you want to show and add your information to each one.
+social-network-links:
+email: "ruiyangzhou@outlook.com"
+
 description: #Here is Ruiyang Zhou' Homepages
 theme: jekyll-theme-cayman
 date: YYYY-MM-DD hh:mm:ss -0000
