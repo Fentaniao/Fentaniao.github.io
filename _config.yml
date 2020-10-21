@@ -1,7 +1,7 @@
 # Site settings
 title: Ruiyang Zhou' Homepages
 email: ruiyangzhou@outlook.com
-description: Here is Ruiyang Zhou' Homepages
+description: #Here is Ruiyang Zhou' Homepages
 theme: jekyll-theme-cayman
 date: YYYY-MM-DD hh:mm:ss -0000
 categories: CATEGORY-1 CATEGORY-2
