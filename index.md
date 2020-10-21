@@ -19,6 +19,9 @@ A brilliant student in Fuzhou University
 - Besides, I like to drive, code, and especially lay on the sofa for the rest.
 - Of course there are many things I’m interested.
 
+## Attention
+123
+
 ## My Blogs
 
 <ul>
@@ -31,14 +34,14 @@ A brilliant student in Fuzhou University
 </ul>
 
 
-## My Doc
+## By Tags
 
  <ul> {% for tag in site.tags %}  <h3>{{ tag[0] }}</h3>  <ul>    {% for post in tag[1] %}      <li><a href="{{ post.url }}">{{ post.title }}</a></li>    {% endfor %}  </ul> {% endfor %}
 
 
-## My Doc2
+## By Categories
 
-{% for tag in site.tags %}  <h3>{{ tag[0] }}</h3>  <ul>    {% for post in tag[1] %}      <li><a href="{{ post.url }}">{{ post.title }}</a></li>    {% endfor %}  </ul> {% endfor %}
+{% for tag in site.categories %}  <h3>{{ tag[0] }}</h3>  <ul>    {% for post in tag[1] %}      <li><a href="{{ post.url }}">{{ post.title }}</a></li>    {% endfor %}  </ul> {% endfor %}
 
 
 
