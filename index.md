@@ -41,7 +41,7 @@ A brilliant student in Fuzhou University
 </ul>
 
 
-### You can also:
+### You can also see the blog by these way:
 
 - [See by Tags]({% link pages/tags.md %})
 - [See by Categories]({% link pages/categories.md %})

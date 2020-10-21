@@ -2,8 +2,6 @@
 
 ------
 
-### By Tags
-
 {% for tag in site.tags %}
 <h3>{{ tag[0] }}</h3>
 <ul> 
@@ -12,8 +10,6 @@
 </ul> 
 {% endfor %}
 
-------
 
-## Contact with Me
 
-See the detail in [About Page](https://fentaniao.github.io/about.html).
+{% include end.md %}
