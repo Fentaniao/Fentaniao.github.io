@@ -34,13 +34,14 @@ A brilliant student in Fuzhou University
 ## My Doc
 
 <ul>
-  {% for post in site.doc %}
+  {% for doc in site.docs %}
     <li>
       <a href="{{ doc.url }}">{{ doc.title }}</a>
       {{ doc.excerpt }}
     </li>
   {% endfor %}
 </ul>
+
 
 
 ## Contact with Me
