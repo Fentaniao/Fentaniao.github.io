@@ -23,7 +23,7 @@ A brilliant student in Fuzhou University
 
 ## My Blogs
 
-### Attention
+### [Attention]({% link pages/notice.md %})
 
 {% include attention.md %}
 
