@@ -1,5 +1,7 @@
 # Welcome
 
+------
+
 ## An Introduction to Myself
 
 A brilliant student in Fuzhou University
@@ -19,6 +21,10 @@ A brilliant student in Fuzhou University
 - Besides, I like to drive, code, and especially lay on the sofa for the rest.
 - Of course there are many things I’m interested.
 
+------
+
+## My Bolgs
+
 ### Attention
 
 123
@@ -37,20 +43,18 @@ A brilliant student in Fuzhou University
 
 ### By Tags
 
- <ul> 
- {% for tag in site.tags %}
- <h3>{{ tag[0] }}</h3>
- <ul> 
- {% for post in tag[1] %}      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
- {% endfor %} 
- </ul> 
- {% endfor %}
- <ul> 
+{% for tag in site.tags %}
+<h3>{{ tag[0] }}</h3>
+<ul> 
+{% for post in tag[1] %}      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %} 
+</ul> 
+{% endfor %}
+
 
 
 ### By Categories
 
- <ul>
  {% for category in site.categories %}
  <h3>{{ category[0] }}</h3>
  <ul>
@@ -58,8 +62,14 @@ A brilliant student in Fuzhou University
  {% endfor %} 
  </ul> 
  {% endfor %}
- <ul> 
 
+
+
+
+
+
+
+------
 
 ## Contact with Me
 
