@@ -1,4 +1,4 @@
-# Blogs
+# All Blogs
 
 ------
 

@@ -6,8 +6,6 @@
 
 A brilliant student in Fuzhou University
 
-### Achievement
-
 - From to , I take part in .
 
 **You can also see it in detail below:**
@@ -23,19 +21,17 @@ A brilliant student in Fuzhou University
 
 ------
 
-## My Bolgs
+## My Blogs
 
 ### Attention
 
-- 12
-- 324
-- 35
+{% include attention.md %}
 
 
 
-### You can also see the other blog **by these ways**:
+### You can see other blogs **by these ways**:
 
-- [All Blogs]({% link pages/blogs.md %})
+- [See All Blogs]({% link pages/blogs.md %})
 - [See by Tags]({% link pages/tags.md %})
 - [See by Categories]({% link pages/categories.md %})
 
@@ -50,9 +46,11 @@ A brilliant student in Fuzhou University
 
 See the detail in [About Page](https://fentaniao.github.io/about.html).
 
-
+------
 
 > This blog is designed by Ruiyang Zhou.
 >
 > Thanks for your view.
+
+------
 
