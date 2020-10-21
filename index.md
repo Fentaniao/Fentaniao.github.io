@@ -19,10 +19,11 @@ A brilliant student in Fuzhou University
 - Besides, I like to drive, code, and especially lay on the sofa for the rest.
 - Of course there are many things I’m interested.
 
-## Attention
+### Attention
+
 123
 
-## My Blogs
+### My Blogs
 
 <ul>
   {% for post in site.posts %}
@@ -34,15 +35,30 @@ A brilliant student in Fuzhou University
 </ul>
 
 
-## By Tags
+### By Tags
 
- <ul> {% for tag in site.tags %}  <h3>{{ tag[0] }}</h3>  <ul>    {% for post in tag[1] %}      <li><a href="{{ post.url }}">{{ post.title }}</a></li>    {% endfor %}  </ul> {% endfor %}
+ <ul> 
+ {% for tag in site.tags %}
+ <h3>{{ tag[0] }}</h3>
+ <ul> 
+ {% for post in tag[1] %}      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+ {% endfor %} 
+ </ul> 
+ {% endfor %}
+ <ul> 
 
 
-## By Categories
+### By Categories
 
- <ul> {% for category in site.categories %}  <h3>{{ category[0] }}</h3>  <ul>    {% for post in category[1] %}      <li><a href="{{ post.url }}">{{ post.title }}</a></li>    {% endfor %}  </ul> {% endfor %}
-
+ <ul>
+ {% for category in site.categories %}
+ <h3>{{ category[0] }}</h3>
+ <ul>
+ {% for post in category[1] %}      <li><a href="{{ post.url }}">{{ post.title }}</a></li> 
+ {% endfor %} 
+ </ul> 
+ {% endfor %}
+ <ul> 
 
 
 ## Contact with Me
@@ -52,6 +68,8 @@ A brilliant student in Fuzhou University
 - Tel: 0
 
 See the detail in [About Page](https://fentaniao.github.io/about.html).
+
+
 
 > This blog is designed by Ruiyang Zhou.
 >
