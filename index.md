@@ -46,7 +46,7 @@ A brilliant student in Fuzhou University
 
 - Tel: 0
 
-See the detail in [About Page](https://fentaniao.github.io/about.html).
+See details in [About Page](https://fentaniao.github.io/about.html).
 
 [Return to the top](#jump).
 

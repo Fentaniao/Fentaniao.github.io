@@ -19,3 +19,11 @@ Once I log in my email, I will check your email.
 - 3
 
 {% include end.md %}
+
+------
+
+> This blog is designed by Ruiyang Zhou.
+>
+> Thanks for your view.
+
+------
