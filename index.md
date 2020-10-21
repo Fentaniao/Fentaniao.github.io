@@ -2,8 +2,6 @@
 
 ------
 
-
-
 ## An Introduction to Myself
 
 A brilliant student in Fuzhou University

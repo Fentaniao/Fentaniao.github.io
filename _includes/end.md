@@ -6,9 +6,9 @@
 
 ------
 
-[To the top](#jump)
+[To the Top](#jump)
 
-[Return to Homepage](https://fentaniao.github.io/)
+[Homepage](https://fentaniao.github.io/)
 
 [About Page](https://fentaniao.github.io/about.html)
 
