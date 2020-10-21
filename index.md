@@ -12,12 +12,9 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 
 # Read My Blogs
 
-- ```markdown
-	[Link to a post]({% link _posts/2011-12-31-new-years-eve-is-awesome.md %})
-	```
-
+- **[新年日报]({% link _posts/2011-12-31-new-years-eve-is-awesome.md %})**
 	
-
+	
 
 # Contact with Me
 
