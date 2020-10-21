@@ -31,20 +31,11 @@ A brilliant student in Fuzhou University
 - 324
 - 35
 
-### All blogs
-
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      {{ post.excerpt }}
-    </li>
-  {% endfor %}
-</ul>
 
 
-### You can also see the blog by these ways:
+### You can also see the other blog **by these ways**:
 
+- [All Blogs]({% link pages/blogs.md %})
 - [See by Tags]({% link pages/tags.md %})
 - [See by Categories]({% link pages/categories.md %})
 
