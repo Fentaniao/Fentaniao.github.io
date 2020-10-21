@@ -1,3 +1,5 @@
+<span id="jump"> </span>
+
 # Welcome
 
 ------
@@ -54,3 +56,4 @@ See the detail in [About Page](https://fentaniao.github.io/about.html).
 
 ------
 
+[点击跳转](#jump)
