@@ -4,11 +4,11 @@
 
 - Email: ruiyangzhou@outlook.com
 
-- Tel: 123456
+- Tel: 0
 
-Once I was online, I will answer your email.
+Once I log in my email, I will check your email.
 
-## Link
+## Friendly Link
 
 - 1
 - 2
