@@ -10,6 +10,10 @@
 
 # Name of website
 title: Ruiyang Zhou' Homepages
+description: #Here is Ruiyang Zhou' Homepages
+theme: jekyll-theme-cayman
+date: YYYY-MM-DD hh:mm:ss -0000
+categories: CATEGORY-1 CATEGORY-2
 
 # Your name to show in the footer
 author: Ruiyang Zhou
@@ -46,7 +50,4 @@ navbar-links:
 social-network-links:
 email: "ruiyangzhou@outlook.com"
 
-description: #Here is Ruiyang Zhou' Homepages
-theme: jekyll-theme-cayman
-date: YYYY-MM-DD hh:mm:ss -0000
-categories: CATEGORY-1 CATEGORY-2
+
