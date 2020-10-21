@@ -27,9 +27,11 @@ A brilliant student in Fuzhou University
 
 ### Attention
 
-123
+- 12
+- 324
+- 35
 
-### My Blogs
+### All blogs
 
 <ul>
   {% for post in site.posts %}
@@ -41,7 +43,7 @@ A brilliant student in Fuzhou University
 </ul>
 
 
-### You can also see the blog by these way:
+### You can also see the blog by these ways:
 
 - [See by Tags]({% link pages/tags.md %})
 - [See by Categories]({% link pages/categories.md %})
