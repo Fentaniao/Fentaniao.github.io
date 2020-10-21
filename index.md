@@ -17,8 +17,11 @@ A brilliant student in Fuzhou University
 
 - **Explore the unknow, study interesting, challenge the difficult.**
 - Besides, I like to drive, code, and especially lay on the sofa for the rest.
-
 - Of course there are many things I’m interested.
+
+## My Blogs
+
+<ul>  {% for post in site.posts %}    <li>      <a href="{{ post.url }}">{{ post.title }}</a>    </li>  {% endfor %} </ul>
 
 ## Contact with Me
 
