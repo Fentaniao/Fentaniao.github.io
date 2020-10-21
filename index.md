@@ -12,7 +12,12 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 
 # Read My Blogs
 
-123
+- ```markdown
+	[Link to a post]({% link _posts/2011-12-31-new-years-eve-is-awesome.md %})
+	```
+
+	
+
 
 # Contact with Me
 
@@ -20,5 +25,5 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 
 - Tel: 123456
 
-	See the detail in [About page](https://fentaniao.github.io/about.html).
+See the detail in [About page](https://fentaniao.github.io/about.html).
 
