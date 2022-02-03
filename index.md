@@ -1,27 +1,47 @@
 # Welcome<span id="jump"> </span>
 
-------
+- 👋 Hi, I’m @Fentaniao
+- 🔭 I’m currently studying on the Dynamics of Covid-19 though the differential equations.
+- 👀 I’m interested in coding, math, movies...
+- 🌱 I’m currently learning developing WinUI3 software, visual identity...
+- 📫 Reach me through Github or fentaniao@gmail.com.
 
-## An Introduction to Myself
+<p>
+  <img alt="Starts" src="https://github-readme-stats-one-bice.vercel.app/api?username=Fentaniao&show_icons=true&include_all_commits=true&count_private=true&role=OWNER,ORGANIZATION_MEMBER" />
+</p>
 
-A brilliant student in Fuzhou University
+### Languages
 
-- From to , I take part in .
+<p>
+  <img alt="Python" src="https://img.shields.io/badge/-Python-3572A5?style=flat&logo=python&logoColor=white" />
+  <img alt="C++" src="https://img.shields.io/badge/-C++-9f62a5?style=flat&logo=cplusplus&logoColor=white" />
+  <img alt="MATLAB" src="https://img.shields.io/badge/-MATLAB-00ADD8?style=flat&logo=matrix&logoColor=white" />
+  <img alt="LaTeX" src="https://img.shields.io/badge/-LaTex-3D6117?style=flat&logo=latex&logoColor=white" />
+  <img alt="Markdown" src="https://img.shields.io/badge/-Markdown-4fc08d?style=flat&logo=markdown&logoColor=white" />
+  <img alt="HTML5" src="https://img.shields.io/badge/-HTML5-e2470f?style=flat&logo=html5&logoColor=white" />
+  <img alt="CSS3" src="https://img.shields.io/badge/-CSS3-1b73ba?style=flat&logo=css3&logoColor=white" />
+</p>
+### Tools
 
-**You can also see it in detail below:**
+<p>
+  <img alt="JetBrains" src="https://img.shields.io/badge/-JetBrains-000000?style=flat&logo=JetBrains&logoColor=white" />
+  <img alt="Visual Studio Code" src="https://img.shields.io/badge/-Visual Studio Code-007ACC?style=flat&logo=Visual%20Studio%20Code&logoColor=white" />
+  <img alt="Git" src="https://img.shields.io/badge/-Git-F05032?style=flat&logo=Git&logoColor=white" />
+  <img alt="Adobe" src="https://img.shields.io/badge/-Adobe-0078D7?style=flat&logo=adobe&logoColor=white" />
+    <img alt="Power BI" src="https://img.shields.io/badge/-Power_BI-0078D7?style=flat&logo=powerbi&logoColor=white" />
+</p>
+
+#### Platforms
+
+<p>
+    <img alt="Insider" src="https://img.shields.io/badge/-Windows_Insider-00ADD8?style=flat&logo=Microsoft&logoColor=white" />
+    <img alt="Linux" src="https://img.shields.io/badge/-Linux-00ADD8?style=flat&logo=linux&logoColor=white" />
+	<img alt="Ubuntu" src="https://img.shields.io/badge/-Ubuntu-00ADD8?style=flat&logo=Ubuntu&logoColor=white" />
+</p>
 
 
-<iframe width="760px" height="500px" src="https://sway.office.com/s/fVfcBAKtNjWBf4rH/embed" frameborder="0" marginheight="0" marginwidth="0" max-width="100%" sandbox="allow-forms allow-modals allow-orientation-lock allow-popups allow-same-origin allow-scripts" scrolling="no" style="border: none; max-width: 100%; max-height: 100vh" allowfullscreen mozallowfullscreen msallowfullscreen webkitallowfullscreen></iframe>
 
-### What I’m interested in
-
-- **Explore the unknow, study interesting, challenge the difficult.**
-- Besides, I like to drive, code, and especially lay on the sofa for the rest.
-- Of course there are many things I’m interested.
-
-------
-
-## My Blogs
+## Blogs
 
 ### [Attention]({% link pages/notice.md %})
 
@@ -38,20 +58,10 @@ A brilliant student in Fuzhou University
 
 ------
 
-## Contact with Me
+## Contact
 
-- Email: [ruiyangzhou@outlook.com](ruiyangzhou@outlook.com)
-
-- Tel: 0
+- Email: fentaniao@gmail.com
 
 See details in [About Page](https://fentaniao.github.io/about.html).
 
 {% include end.md %}
-
-------
-
-> This blog is designed by Ruiyang Zhou.
->
-> Thanks for your view.
-
-------
