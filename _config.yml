@@ -105,4 +105,5 @@ deploy:
   type: git
   repo:  git@github.com:Fentaniao.github.io
   branch: gh-pages
+  message:
 
