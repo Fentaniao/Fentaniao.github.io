@@ -5,7 +5,7 @@ node_js:
 cache: npm
 branches:
 only:
-- hexo # build hexo branch only
+- main # build hexo branch only
 script:
 - hexo generate # generate static files
 deploy:
@@ -15,5 +15,5 @@ github-token: $GH_TOKEN
 keep-history: true
 on:
 all_branches: true # solve a permission problem
-target_branch: master
+target_branch: main
 local-dir: public
