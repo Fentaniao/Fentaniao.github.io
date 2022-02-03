@@ -107,6 +107,6 @@ deploy:
   branch: gh-pages
 deploy:
   type: git
-  repo: https://Fentaniao/Fentaniao.github.io
+  repo: https://Fentaniao.github.io
   branch: gh-pages
 
