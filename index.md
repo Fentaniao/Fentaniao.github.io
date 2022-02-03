@@ -44,8 +44,6 @@ A brilliant student in Fuzhou University
 
 See details in [About Page](https://fentaniao.github.io/about.html).
 
-{% include end.md %}
-
 ------
 
 > This blog is designed by Ruiyang Zhou.
@@ -53,3 +51,5 @@ See details in [About Page](https://fentaniao.github.io/about.html).
 > Thanks for your view.
 
 ------
+
+{% include end.md %}
