@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Knowledge Base
 subtitle: ''
-description: ''
+description: 'the Knowledge Base of Fentaniao'
 keywords:
-author: John Doe
-language: en
-timezone: ''
+author: Fentaniao
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://fentaniao.github.io/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -102,4 +102,6 @@ theme: nexmoe
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repository: git@github.com:Fentaniao/Fentaniao.github.io.git
+  branch: gh-pages

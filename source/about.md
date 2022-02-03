@@ -1,0 +1,17 @@
+# 关于
+
+这是Fentaniao打造的技术博客，我把它称为我的知识库（Knowledge Base）。
+
+## Contact
+
+Author: Fentaniao
+
+Email: [Fentaniao@gmail.com](mailto:Fentaniao@gmail.com)
+
+GitHub: http://github/fentaniao
+
+## License
+
+本博客基于 [Hexo](http://hexo.io/) & [Nexmoe](https://github.com/theme-nexmoe/hexo-theme-nexmoe)。
+
+ 

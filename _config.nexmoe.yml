@@ -1,8 +1,8 @@
-avatar: https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png # 网站 Logo
+avatar: https://avatars.githubusercontent.com/u/62752455?v=4 # 网站 Logo
 background: # 既是博客的背景，又是文章默认头图
   path: https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg
   width: 1440
-  height: 960
+  height: 480
 favicon:
   href: /favicon.ico # 网站图标
   type: image/x-icon # 图标类型，可能的值有(image/png, image/vnd.microsoft.icon, image/x-icon, image/gif)
@@ -21,7 +21,7 @@ iconlib: # //at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css
 
 search: 
   type: engine # 可选engine（用搜索引擎搜索）、swiftype、或local（本地搜索）
-  url: https://cn.bing.com/search?q=site:nexmoe.com # 搜索引擎地址，在type为swiftype时无效 e.g:https://www.google.com/search?q={你的博客链接}
+  url: https://cn.bing.com/search?q=site:fentaniao.com # 搜索引擎地址，在type为swiftype时无效 e.g:https://www.google.com/search?q={你的博客链接}
   id: <swiftype-id> # swiftype的id，见启用教程。在type为engine时无效
 
 cdn: # 这里可以修改站点使用的库的CDN
@@ -41,11 +41,15 @@ menu:
 #  文章归档:  # 使用说明：https://docs.nexmoe.com/article/archive
 #    - /archive.html
 #    - icon-container
+  我的项目: 
+    - /projects.html
+    - icon-home
+# 我的朋友: 
+#   - /PY.html # 使用说明：https://docs.nexmoe.com/article/py
   关于博客:
     - /about.html
     - icon-info-circle
-  我的朋友: 
-    - /PY.html # 使用说明：https://docs.nexmoe.com/article/py
+
 
 widgets:
 - search
@@ -59,21 +63,28 @@ widgets:
 maxTagcloud: 0  # 标签云组件显示的标签数量，0 表示不限制
 
 social:
-  QQ群: 
-    - https://jq.qq.com/?_wv=1027&k=5CfKHun
-    - icon-QQ
-    - rgb(249, 174, 8)
-    - rgba(249, 174, 8, .1)
-  哔哩哔哩:
-    - https://space.bilibili.com/20238211
-    - icon-bilibili
-    - rgb(231, 106, 141)
-    - rgba(231, 106, 141, .15)
+  # QQ群: 
+  #   - https://jq.qq.com/?_wv=1027&k=5CfKHun
+  #   - icon-QQ
+  #   - rgb(249, 174, 8)
+  #   - rgba(249, 174, 8, .1)
+  # 哔哩哔哩:
+  #   - https://space.bilibili.com/20238211
+  #   - icon-bilibili
+  #   - rgb(231, 106, 141)
+  #   - rgba(231, 106, 141, .15)
+  Email:
+    - mailto:fentaniao@gmail.com
+    - icon-mail-fill
+    - rgb(249,8,8)
+    - rgba(249,8,8,.1)
   GitHub:
-    - https://github.com/nexmoe/
+    - https://github.com/fentaniao/
     - icon-github
     - rgb(25, 23, 23)
     - rgba(25, 23, 23, .15)
+
+
 
 # 自定义样式，启用后可在站点的source文件夹下新建custom.css自定义站点样式
 customstyle: false  
@@ -123,16 +134,16 @@ analytics:
   gtm_container_id: #<ID>
 
 # 评论框，目前支持 gitalk,gitment,valine,disqus,disqusjs,changyan,livere,DiscussBot 使用 false 可以关闭
-comment: gitalk
+comment: false
 gitalk:
-  admin: nexmoe # 拥有对该repo进行操作的 GitHub username
-  owner: nexmoe # 持有该 repo 的 GitHub username
-  repo: nexmoe.github.io # 存放评论的 issue 所在的 repo
+  admin: fentaniao # 拥有对该repo进行操作的 GitHub username
+  owner: fentaniao # 持有该 repo 的 GitHub username
+  repo: fentaniao.github.io # 存放评论的 issue 所在的 repo
   clientID: 80b2453b6d5f37ad6225 # GitHub Client ID
   clientSecret: 43e99fa852795c9a7b3eb924b2558c64b84bbdeb # GitHub Client Secret
 gitment:
-  owner: nexmoe # 持有该 repo 的 GitHub username
-  repo: nexmoe.github.io # 存放评论的 issue 所在的 repo
+  owner: fentaniao # 持有该 repo 的 GitHub username
+  repo: fentaniao.github.io # 存放评论的 issue 所在的 repo
   clientID: 80b2453b6d5f37ad6225 # GitHub Client ID
   clientSecret: 43e99fa852795c9a7b3eb924b2558c64b84bbdeb # GitHub Client Secret
 valine: 
