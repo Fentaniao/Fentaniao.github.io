@@ -8,12 +8,12 @@ subtitle: ''
 description: ''
 keywords:
 author: John Doe
-language: zh-CN
+language: en
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://hexo-theme-nexmoe-example.vercel.app/
+url: http://example.com
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -45,11 +45,11 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: false
-  auto_detect: true
+  line_number: true
+  auto_detect: false
   tab_replace: ''
   wrap: true
-  hljs: true
+  hljs: false
 prismjs:
   enable: false
   preprocess: true

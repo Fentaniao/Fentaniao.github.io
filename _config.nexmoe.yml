@@ -35,7 +35,7 @@ cdn: # 这里可以修改站点使用的库的CDN
     js: https://cdn.jsdelivr.net/npm/valine
 
 menu:
-  返回首页: 
+  回到首页: 
     - /
     - icon-home
 #  文章归档:  # 使用说明：https://docs.nexmoe.com/article/archive
