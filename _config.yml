@@ -102,8 +102,4 @@ theme: nexmoe
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: git
-  repo:  https://github.com/Fentaniao/Fentaniao.github.io.git
-  branch: gh-pages
-  message:
-
+  type: ''
