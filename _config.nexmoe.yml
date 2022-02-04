@@ -21,7 +21,7 @@ iconlib: # //at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css
 
 search: 
   type: engine # 可选engine（用搜索引擎搜索）、swiftype、或local（本地搜索）
-  url: https://cn.bing.com/search?q=site:fentaniao.com # 搜索引擎地址，在type为swiftype时无效 e.g:https://www.google.com/search?q={你的博客链接}
+  url: https://cn.bing.com/search?q=site:fentaniao.github.io # 搜索引擎地址，在type为swiftype时无效 e.g:https://www.google.com/search?q={你的博客链接}
   id: <swiftype-id> # swiftype的id，见启用教程。在type为engine时无效
 
 cdn: # 这里可以修改站点使用的库的CDN
