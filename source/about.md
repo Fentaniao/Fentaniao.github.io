@@ -8,6 +8,10 @@ hexo: https://hexo.io/zh-cn/
 
 hexo doc: https://hexo.io/zh-cn/docs/
 
+nexmoe: https://github.com/theme-nexmoe/hexo-theme-nexmoe
+
+nexmoe doc: https://docs.nexmoe.com/
+
 ## Contact
 
 Author: Fentaniao

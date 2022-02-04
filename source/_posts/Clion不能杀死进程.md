@@ -39,6 +39,6 @@ https://www.zhihu.com/question/50971066/answer/198448875
 
 这个.CLion2017.3\config 一般是在C盘的user 下面。
 
-##  来源
+##  参考资料
 
 转载于:https://www.cnblogs.com/-xiangyang/p/9482270.html

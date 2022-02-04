@@ -46,10 +46,10 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace: ''
   wrap: true
-  hljs: false
+  hljs: true
 prismjs:
   enable: false
   preprocess: true
@@ -105,3 +105,4 @@ deploy:
   type: git
   repository: git@github.com:Fentaniao/Fentaniao.github.io.git
   branch: gh-pages
+

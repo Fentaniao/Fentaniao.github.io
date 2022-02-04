@@ -52,6 +52,6 @@ void printHello();
 #endif
 ```
 
-## 来源
+## 参考资料
 
 CMakeLists.txt和.h头文件：https://blog.csdn.net/qq_38329197/article/details/86500071

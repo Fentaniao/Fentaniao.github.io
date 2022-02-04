@@ -2,7 +2,7 @@ avatar: https://avatars.githubusercontent.com/u/62752455?v=4 # 网站 Logo
 background: # 既是博客的背景，又是文章默认头图
   path: https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg
   width: 1440
-  height: 480
+  height: 720
 favicon:
   href: /favicon.ico # 网站图标
   type: image/x-icon # 图标类型，可能的值有(image/png, image/vnd.microsoft.icon, image/x-icon, image/gif)
@@ -38,9 +38,9 @@ menu:
   回到首页: 
     - /
     - icon-home
-#  文章归档:  # 使用说明：https://docs.nexmoe.com/article/archive
-#    - /archive.html
-#    - icon-container
+  文章归档:  # 使用说明：https://docs.nexmoe.com/article/archive
+   - /archive.html
+   - icon-container
   我的项目: 
     - /projects.html
     - icon-home
@@ -87,7 +87,7 @@ social:
 
 
 # 自定义样式，启用后可在站点的source文件夹下新建custom.css自定义站点样式
-customstyle: false  
+customstyle: true 
 color: # 配色方案，从first到seventh为优先级为1-7的颜色，默认为彩虹配色
   first: # 同时作为主题色
     r: 255 
