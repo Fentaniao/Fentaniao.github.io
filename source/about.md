@@ -24,4 +24,4 @@ GitHub: http://github/fentaniao
 
 本博客基于 [Hexo](http://hexo.io/) & [Nexmoe](https://github.com/theme-nexmoe/hexo-theme-nexmoe)。
 
- 
+[GPL-3.0 License](https://github.com/Fentaniao/Fentaniao.github.io/blob/main/LICENSE) © Fentaniao
