@@ -1,0 +1,44 @@
+---
+title: Clion无法主动杀死进程
+date: 2021-10-10 22:28:07
+categories:
+- [IDE Configurtion]
+tags:
+- JetBrains
+- Clion
+- IDE
+
+---
+
+
+在使用Clion运行C++程序时，即使点了结束按钮后，打开任务管理器，发现刚才运行的程序还在，并没有被杀死。
+
+有时如果一个程序写了死循环，就会出现疯狂占用内存，最后不得不关机重启。
+
+## 解决方案
+
+这是JetBrains的社区有人也有这样的问题。
+
+https://intellij-support.jetbrains.com/hc/en-us/community/posts/206620039-Clion-IDE-not-killing-processes-
+
+还有在stackoverflow
+
+https://stackoverflow.com/questions/51169357/unable-to-catch-sigint-sent-by-clion
+
+他们给出的解决方法是按着***\*shift+ctrl + A\**** ,然后输入***\*Registry\**** 找到'**run.processes.with.pty**'并把它关掉，也可以这样 **(Help -> Find Action -> Registry...)。**
+
+ 
+
+但是神奇的是，这个设置不能被保存，你下次再打开Clion时他依然时开的。
+
+然后在知乎找到了这个保存的方法 具体链接 
+
+https://www.zhihu.com/question/50971066/answer/198448875
+
+***\*解决方法\****  在.CLion2017.3\config里面新建 [idea.properties](https://link.zhihu.com/?target=http%3A//idea.properties) 文件，文件内容：run.processes.with.pty=false
+
+这个.CLion2017.3\config 一般是在C盘的user 下面。
+
+##  来源
+
+转载于:https://www.cnblogs.com/-xiangyang/p/9482270.html

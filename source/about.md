@@ -2,6 +2,12 @@
 
 这是Fentaniao打造的技术博客，我把它称为我的知识库（Knowledge Base）。
 
+## Support
+
+hexo: https://hexo.io/zh-cn/
+
+hexo doc: https://hexo.io/zh-cn/docs/
+
 ## Contact
 
 Author: Fentaniao
