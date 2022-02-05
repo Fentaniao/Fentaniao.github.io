@@ -20,16 +20,24 @@ Turn to my [GitHub Page](https://fentaniao.github.io): https://fentaniao.github.
 
 ## Environment
 
+Do as this bash file.
+
 ```bash
-# 检查是否安装了git和node.js
+# Check git and node.js
 node -v 
 git --version
 
-# 安装hexo
+# Install hexo
 npm install -g hexo-cli
+
+# Installation of Plug-in
+@echo hexo-theme-nexmoe is already install in this blog.
+@echo hexo-wordcount is already install in this blog.
+
+# Add SSH Key
+@echo Please add your SSH Key yourselves.
+pause
 ```
-
-
 
 ## Contact
 
