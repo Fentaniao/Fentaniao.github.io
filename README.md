@@ -33,6 +33,7 @@ npm install -g hexo-cli
 # Installation of Plug-in
 @echo hexo-theme-nexmoe is already install in this blog.
 @echo hexo-wordcount is already install in this blog.
+@echo hexo-hide-posts is already install in this blog.
 
 # Add SSH Key
 @echo Please add your SSH Key yourselves.
