@@ -18,6 +18,19 @@ Turn to my [GitHub Page](https://fentaniao.github.io): https://fentaniao.github.
 - Based on an excellent performance framework
 - Practical knowledge base
 
+## Environment
+
+```bash
+# 检查是否安装了git和node.js
+node -v 
+git --version
+
+# 安装hexo
+npm install -g hexo-cli
+```
+
+
+
 ## Contact
 
 Author: Fentaniao
