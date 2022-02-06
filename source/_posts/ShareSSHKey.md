@@ -1,7 +1,11 @@
 ---
 title: 多台电脑共用SSH Key
 date: 2022-02-05 18:06:00
+categories:
+- [git]
 tags:
+- git
+
 ---
 
 实现SSH Public/Private Key的在多台电脑中的共用。
@@ -18,9 +22,7 @@ tags:
 
 ```bash
 git config [--global] user.name "[name]" //请保持和以前一样
-
 git config [--global] user.email "[email address]"
-
 ssh-keygen -t rsa
 ```
 
@@ -34,7 +36,6 @@ id_rsa是600，id_rsa.pub是644，比如：
 
 ```bash
 -rw------- 1 fancy fancy 1675 2013-03-19 12:55 id_rsa
-
 -rw-r--r-- 1 fancy fancy 406 2013-03-19 12:55 id_rsa.pub
 ```
 
@@ -62,7 +63,6 @@ SSH需要生成公钥Public Key和私钥Private Key, 常用的是使用RSA算法
 ### SSH公钥登陆过程
 
 1. 客户端发出公钥登陆的请求(ssh user@host)
-
 2. 服务端返回一段随机字符串
 3. 客户端用私钥Private Key(id_rsa)加密这个字符串，再发送回服务端
 4. 服务端用~/.ssh/authorized_keys里面存储的公钥Public Key去解密收到的字符串。如果成功，就表明这个客户端是可信的，客户端就可以成功登陆
