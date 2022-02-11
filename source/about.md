@@ -18,7 +18,7 @@ Author: Fentaniao
 
 Email: [Fentaniao@gmail.com](mailto:Fentaniao@gmail.com)
 
-GitHub: http://github/fentaniao
+GitHub: https://github.com/fentaniao
 
 ## License
 

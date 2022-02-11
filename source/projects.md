@@ -1,7 +1,7 @@
-- 👋 Hi, I’m @Fentaniao
-- 🔭 I’m currently studying on the Dynamics of Covid-19 though the differential equations.
-- 👀 I’m interested in coding, math, movies...
-- 🌱 I’m currently learning developing WinUI3 software, visual identity...
+- 👋 Hi, I'm @Fentaniao.
+- 🔭 I'm currently working on the Dynamics of Covid-19 though the differential equations.
+- 👀 I'm interested in coding, math, movies. I record my technical notes in https://fentaniao.github.io.
+- 🌱 I'm currently learning developing WinUI 3 software, inertial navigation...
 - 📫 Reach me through GitHub or fentaniao@gmail.com.
 
 
