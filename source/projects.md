@@ -29,6 +29,7 @@
         <div style="display:inline-block;"><img alt="Power BI" src="https://img.shields.io/badge/-Power_BI-0078D7?style=flat&logo=powerbi&logoColor=white" /></div>
 </left>
 
+
 ## Platforms
 
 <left>
@@ -40,16 +41,16 @@
 ## Projects
 
 <left>
-<div style="display:inline-block;"><img alt="Insider" src="https://github-readme-stats.vercel.app/api/pin/?username=fentaniao&repo=liquid" /></div>
-<div style="display:inline-block;"><img alt="Insider" src="https://github-readme-stats.vercel.app/api/pin/?username=fentaniao&repo=MATLAB-Utilities" /></div>
+<div style="display:inline-block;"><a href="https://github.com/fentaniao/liquid"><img alt="Liquid" src="https://github-readme-stats.vercel.app/api/pin/?username=fentaniao&repo=liquid" /></a></div>
+<div style="display:inline-block;"><a href="https://github.com/fentaniao/MATLAB-Utilities"><img alt="MATLAB-Utilities" src="https://github-readme-stats.vercel.app/api/pin/?username=fentaniao&repo=MATLAB-Utilities" /></a></div>
 </left>
 
 <left>
-<div style="display:inline-block;"><img alt="Insider" src="https://github-readme-stats.vercel.app/api/pin/?username=fentaniao&repo=Latest-Release" /></div>
-<div style="display:inline-block;"><img alt="Insider" src="https://github-readme-stats.vercel.app/api/pin/?username=fentaniao&repo=cpptrace" /></div>
+<div style="display:inline-block;"><a href="https://github.com/fentaniao/Latest-Release"><img alt="Latest-Release" src="https://github-readme-stats.vercel.app/api/pin/?username=fentaniao&repo=Latest-Release" /></a></div>
+<div style="display:inline-block;"><a href="https://github.com/fentaniao/cpptrace"><img alt="CppTrace" src="https://github-readme-stats.vercel.app/api/pin/?username=fentaniao&repo=cpptrace" /></a></div>
 </left>
 
 <left>
-<div style="display:inline-block;"><img alt="Insider" src="https://github-readme-stats.vercel.app/api/pin/?username=fentaniao&repo=ScientificCalculationBot" /></div>
+<div style="display:inline-block;"><a href="https://github.com/fentaniao/ScientificCalculationBot"><img alt="ScientificCalculationBot" src="https://github-readme-stats.vercel.app/api/pin/?username=fentaniao&repo=ScientificCalculationBot" /></a></div>
 <div style="display:inline-block;"></div>
 </left>
