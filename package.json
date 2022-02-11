@@ -24,7 +24,7 @@
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-server": "^2.0.0",
     "hexo-theme-landscape": "^0.0.3",
-    "hexo-theme-nexmoe": "^3.2.4",
+    "hexo-theme-nexmoe": "^3.2.6",
     "hexo-wordcount": "^6.0.1"
   }
 }
