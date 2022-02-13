@@ -2,7 +2,7 @@
 title: Clion无法主动杀死进程
 date: 2021-10-10 22:28:07
 categories:
-- [IDE Configurtion]
+- [IDE config]
 tags:
 - JetBrains
 - Clion

@@ -2,7 +2,7 @@
 title: JetBrains IDE无法响应Surface Pen输入
 date: 2021-10-17 09:01:07
 categories:
-- [IDE Configurtion]
+- [IDE config]
 - [Surface]
 tags:
 - JetBrains
