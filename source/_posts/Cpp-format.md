@@ -3,6 +3,7 @@ title: CMakeLists.txt格式和.h头文件的格式
 date: 2021-10-19 20:48:00
 categories:
 - [IDE config]
+- [C++]
 tags:
 - JetBrains
 - Clion
