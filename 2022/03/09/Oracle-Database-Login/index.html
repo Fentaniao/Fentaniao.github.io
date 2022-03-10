@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>Oracle中如何创建和连接用户 - Knowledge Base</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="Oracle中创建和连接用户的解决方案">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle中如何创建和连接用户">
+<meta property="og:url" content="https://fentaniao.github.io/2022/03/09/Oracle-Database-Login/index.html">
+<meta property="og:site_name" content="Knowledge Base">
+<meta property="og:description" content="Oracle中创建和连接用户的解决方案">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203092114552.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203092114668.png">
+<meta property="article:published_time" content="2022-03-09T07:50:00.000Z">
+<meta property="article:modified_time" content="2022-03-10T02:04:19.425Z">
+<meta property="article:author" content="Fentaniao">
+<meta property="article:tag" content="IDE">
+<meta property="article:tag" content="JetBrains">
+<meta property="article:tag" content="DataGrip">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203092114552.png">
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1646877975921">
+    
+    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1646877975921">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1646877975921">
+    <link rel="stylesheet" href="/css/style.css?v=1646877975921">
+     
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Fentaniao" class="mdui-btn mdui-btn-icon"><img src="https://avatars.githubusercontent.com/u/62752455?v=4" alt="Fentaniao"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Fentaniao">
+            <img src="https://avatars.githubusercontent.com/u/62752455?v=4" alt="Fentaniao" alt="Fentaniao">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>15</div>
+        <div><span>标签</span>11</div>
+        <div><span>分类</span>7</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/projects.html" title="我的项目">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                我的项目
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:fentaniao.github.io" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="mailto:fentaniao@gmail.com" target="_blank" mdui-tooltip="{content: 'Email'}" style="color: rgb(249,8,8);background-color: rgba(249,8,8,.1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/fentaniao/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/C/">C++</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Git/">Git</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/IDE-config/">IDE config</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/LaTeX/">LaTeX</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/SQL/">SQL</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Surface/">Surface</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/bash/">bash</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Beamer/" style="font-size: 10px;">Beamer</a> <a href="/tags/Clion/" style="font-size: 15px;">Clion</a> <a href="/tags/DataGrip/" style="font-size: 12.5px;">DataGrip</a> <a href="/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/tags/IDE/" style="font-size: 20px;">IDE</a> <a href="/tags/JetBrains/" style="font-size: 17.5px;">JetBrains</a> <a href="/tags/Jetbrains/" style="font-size: 10px;">Jetbrains</a> <a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a> <a href="/tags/Plugins/" style="font-size: 10px;">Plugins</a> <a href="/tags/Surface/" style="font-size: 12.5px;">Surface</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 Fentaniao
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 44.44444444444444%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Oracle中如何创建和连接用户" class="lazyload">
+              <h1>Oracle中如何创建和连接用户</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年03月09日</a>
+</div>
+
+      
+
+      <p>Oracle中创建和连接用户的解决方案</p>
+<span id="more"></span>
+
+<h2 id="Datagrip中连接SYS用户"><a href="#Datagrip中连接SYS用户" class="headerlink" title="Datagrip中连接SYS用户"></a>Datagrip中连接SYS用户</h2><p>1.配置oracle数据库用户连接信息</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203092114552.png" alt="step1" class="lazyload"></p>
+<p>2.打开Advanced，给internal_logon加sysdba参数，如下图所示。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203092114668.png" alt="step2" class="lazyload"></p>
+<h2 id="用户创建"><a href="#用户创建" class="headerlink" title="用户创建"></a>用户创建</h2><ul>
+<li>首先获取SYSDBA权限</li>
+<li>创建用户<code>create user username identified by &#39;password&#39;;</code></li>
+</ul>
+<h2 id="用户授权"><a href="#用户授权" class="headerlink" title="用户授权"></a>用户授权</h2><p>首先获取SYSDBA权限，才能授权角色。</p>
+<p>oracle为兼容以前版本，提供三种标准角色（role）:connect&#x2F;resource和dba。</p>
+<h3 id="三种标准角色："><a href="#三种标准角色：" class="headerlink" title="三种标准角色："></a>三种标准角色：</h3><h4 id="connect-role-连接角色"><a href="#connect-role-连接角色" class="headerlink" title="connect role(连接角色)"></a>connect role(连接角色)</h4><ul>
+<li>临时用户，特指不需要建表的用户，通常只赋予他们connect role. </li>
+<li>connect是使用oracle简单权限，这种权限只对其他用户的表有访问权限，包括select&#x2F;insert&#x2F;update和delete等。</li>
+<li>拥有connect role 的用户还能够创建表、视图、序列（sequence）、簇（cluster）、同义词(synonym)、回话（session）和其他  数据的链（link）</li>
+</ul>
+<h4 id="resource-role-资源角色"><a href="#resource-role-资源角色" class="headerlink" title="resource role(资源角色)"></a>resource role(资源角色)</h4><ul>
+<li>更可靠和正式的数据库用户可以授予resource role。</li>
+<li>resource提供给用户另外的权限以创建他们自己的表、序列、过程(procedure)、触发器(trigger)、索引(index)和簇(cluster)。</li>
+</ul>
+<h4 id="dba-role-数据库管理员角色"><a href="#dba-role-数据库管理员角色" class="headerlink" title="dba role(数据库管理员角色)"></a>dba role(数据库管理员角色)</h4><ul>
+<li>dba role拥有所有的系统权限</li>
+<li>包括无限制的空间限额和给其他用户授予各种权限的能力。system由dba用户拥有</li>
+</ul>
+<h3 id="授权命令"><a href="#授权命令" class="headerlink" title="授权命令"></a>授权命令</h3><p>语法： <code>grant connect, resource to 用户名;</code><br>例子： <code>grant connect, resource to newUsername ;</code></p>
+<h3 id="撤销权限"><a href="#撤销权限" class="headerlink" title="撤销权限"></a>撤销权限</h3><p>语法： <code>revoke connect, resource from 用户名;</code><br>例子： <code>revoke connect, resource from newUsername ;</code></p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Fentaniao<br>
+        <strong>本文链接：</strong><a href="https://fentaniao.github.io/2022/03/09/Oracle-Database-Login/" title="https:&#x2F;&#x2F;fentaniao.github.io&#x2F;2022&#x2F;03&#x2F;09&#x2F;Oracle-Database-Login&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;fentaniao.github.io&#x2F;2022&#x2F;03&#x2F;09&#x2F;Oracle-Database-Login&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/IDE-config/">IDE config</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/SQL/">SQL</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/DataGrip/" rel="tag">DataGrip</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/IDE/" rel="tag">IDE</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/JetBrains/" rel="tag">JetBrains</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1646877975923"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>

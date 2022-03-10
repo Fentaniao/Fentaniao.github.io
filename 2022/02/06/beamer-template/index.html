@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>如何创建Beamer样式模板 - Knowledge Base</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="如何创作一个Beamer模板，包括如何修改常用元素的主题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何创建Beamer样式模板">
+<meta property="og:url" content="https://fentaniao.github.io/2022/02/06/beamer-template/index.html">
+<meta property="og:site_name" content="Knowledge Base">
+<meta property="og:description" content="如何创作一个Beamer模板，包括如何修改常用元素的主题。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-06T15:49:00.000Z">
+<meta property="article:modified_time" content="2022-03-10T02:04:19.430Z">
+<meta property="article:author" content="Fentaniao">
+<meta property="article:tag" content="LaTeX">
+<meta property="article:tag" content="Beamer">
+<meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1646877975932">
+    
+    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1646877975932">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1646877975932">
+    <link rel="stylesheet" href="/css/style.css?v=1646877975932">
+     
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Fentaniao" class="mdui-btn mdui-btn-icon"><img src="https://avatars.githubusercontent.com/u/62752455?v=4" alt="Fentaniao"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Fentaniao">
+            <img src="https://avatars.githubusercontent.com/u/62752455?v=4" alt="Fentaniao" alt="Fentaniao">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>15</div>
+        <div><span>标签</span>11</div>
+        <div><span>分类</span>7</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/projects.html" title="我的项目">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                我的项目
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:fentaniao.github.io" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="mailto:fentaniao@gmail.com" target="_blank" mdui-tooltip="{content: 'Email'}" style="color: rgb(249,8,8);background-color: rgba(249,8,8,.1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/fentaniao/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/C/">C++</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Git/">Git</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/IDE-config/">IDE config</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/LaTeX/">LaTeX</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/SQL/">SQL</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Surface/">Surface</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/bash/">bash</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Beamer/" style="font-size: 10px;">Beamer</a> <a href="/tags/Clion/" style="font-size: 15px;">Clion</a> <a href="/tags/DataGrip/" style="font-size: 12.5px;">DataGrip</a> <a href="/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/tags/IDE/" style="font-size: 20px;">IDE</a> <a href="/tags/JetBrains/" style="font-size: 17.5px;">JetBrains</a> <a href="/tags/Jetbrains/" style="font-size: 10px;">Jetbrains</a> <a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a> <a href="/tags/Plugins/" style="font-size: 10px;">Plugins</a> <a href="/tags/Surface/" style="font-size: 12.5px;">Surface</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 Fentaniao
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 44.44444444444444%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="如何创建Beamer样式模板" class="lazyload">
+              <h1>如何创建Beamer样式模板</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年02月06日</a>
+</div>
+
+      
+
+      <p>如何创作一个Beamer模板，包括如何修改常用元素的主题。</p>
+<span id="more"></span>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文是对The beamer class Manual for version 3.06内容的重构。</p>
+<p>主要内容集中在如何创作一个Beamer模板，包括如何修改常用元素的主题。</p>
+<p>您可以通过以下链接访问原文：<a target="_blank" rel="noopener" href="https://www.docin.com/p-1206582079.html?qq-pf-to=pcqq.c2c">https://www.docin.com/p-1206582079.html?qq-pf-to=pcqq.c2c</a></p>
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>主题其实包含主题（beamerthemexxx.sty）、内主题(beamerinnerthemexxx.sty)、外主题(beamerouterthemexxx.sty)、字体主题(beamerfontthemexxx.sty)、颜色主题(beamercolorthemexxx.sty)五个部分，分放在五个sty文件中，写完这五个 sty 文件，再在你的文档中，使用<code>usetheme&#123;xxx&#125;</code>，将你创作的主体包含进来即可。</p>
+<p>引自<a target="_blank" rel="noopener" href="https://lusongno1.blog.csdn.net/article/details/83009395">https://lusongno1.blog.csdn.net/article/details/83009395</a></p>
+<p>以上的话说的比较简洁，其实情况为：Color Theme只决定了颜色，Font Themes只决定了字体，Inner Themes决定了Frame环境下内部的枚举环境，块环境，定义环境，定理环境等样式，Outer Themes决定了frame中上下栏，左右侧栏，导航栏等元素的样式。</p>
+<p>而Presentation theme包含了以上所有四个内容，但是这四个内容可以相互独立替换。所以最好的情况是给出这五个文件，这样人家可以使用你的主题，也可以在使用别的主题的时候单独使用你的字体样式，或者别的样式</p>
+<h2 id="内主题"><a href="#内主题" class="headerlink" title="内主题"></a>内主题</h2><p>内主题包含以下9种元素的样式：</p>
+<p>title 标题，enumerate 有序枚举，itemize 无序枚举，block 块，description 描述环境，proof和theorem 证明和定理，graphic和table 图片和表格，footnote 脚注，bib 引用</p>
+<h3 id="无序列举"><a href="#无序列举" class="headerlink" title="无序列举"></a>无序列举</h3><p><code>\setbeamertemplate&#123;itemize items&#125;&#123;\color&#123;red&#125;$\bullet$&#125;</code></p>
+<h3 id="有序列举"><a href="#有序列举" class="headerlink" title="有序列举"></a>有序列举</h3><p>具体见颜色的设置</p>
+<h3 id="块"><a href="#块" class="headerlink" title="块"></a>块</h3><ul>
+<li>显示圆角矩形：<code>\setbeamertemplate&#123;blocks&#125;[rounded]</code></li>
+<li>显示阴影：<code>\setbeamertemplate&#123;blocks&#125;[rounded][shadow=true]</code></li>
+</ul>
+<h2 id="外主题"><a href="#外主题" class="headerlink" title="外主题"></a>外主题</h2><p>外主题包含了以下元素的样式：<br>上下栏，侧栏，logo，frame title</p>
+<h3 id="上栏"><a href="#上栏" class="headerlink" title="上栏"></a>上栏</h3><p>使用<code>\setbeamertemplate&#123;headline&#125;&#123;&#125;</code></p>
+<p>插入导航条：</p>
+<p><code>\insertsectionnavigationhorizontal&#123;宽度&#125;&#123;左侧文字&#125;&#123;右侧文字&#125;</code>：样式为水平的导航条，显示所有section，高亮当前section，宽度为导航条宽度，尽量不要太大。左右侧文字是你希望插入在每一个section旁边的符号。</p>
+<p>我发现一个问题：使用<code>\setbeamercolor&#123;headline&#125;&#123;fg=,bg=&#125;</code>的方式，改变的是高亮和常规的颜色，而不是headline背景的颜色，这个问题还是没有解决。</p>
+<p><code>\insertsectionnavigation&#123;宽度&#125;</code>：这个导航栏是竖直的，不建议使用。</p>
+<p>还可以插入作者，机构之类的，但是不常用。</p>
+<h3 id="logo"><a href="#logo" class="headerlink" title="logo"></a>logo</h3><ul>
+<li>导入logo图案：<code>\logo&#123;\includegraphics[height=0.5cm]&#123;logo.pdf&#125;&#125;</code></li>
+<li>插入logo：<code>\insertlogo inserts</code></li>
+</ul>
+<h2 id="字体主题"><a href="#字体主题" class="headerlink" title="字体主题"></a>字体主题</h2><h3 id="字体主题-1"><a href="#字体主题-1" class="headerlink" title="字体主题"></a>字体主题</h3><p>字体主题包含了所有元素的字体的大小和样式</p>
+<p><code>\setbeamerfont&#123;名字&#125;&#123;选项&#125;</code></p>
+<p>参数：名字是指定的元素，比如block，frametitle一类的。</p>
+<p>选项：</p>
+<ul>
+<li>size: 字体的大小</li>
+<li>series: 字体的样式，\bfseries 加粗</li>
+<li>shape: \itshape 斜体，\slshape 伪斜体, \scshape 小型大写, \upshape 直立</li>
+<li>family: 字体的格式</li>
+</ul>
+<p>此图引自：<a target="_blank" rel="noopener" href="https://blog.csdn.net/y11235816/article/details/91048416">https://blog.csdn.net/y11235816/article/details/91048416</a></p>
+<h3 id="字号"><a href="#字号" class="headerlink" title="字号"></a>字号</h3><p>命令    对应字号<br>\script    六号<br>\footnotesize    小五<br>\small    五号<br>\nomalsize    小四<br>\large    四号<br>\Large    三号<br>\LARGE    二号<br>\huge    一号<br>\Huge    小初<br>\HUGE    初号</p>
+<p>以下内容引自：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/LitBro/p/12074820.html">https://www.cnblogs.com/LitBro/p/12074820.html</a></p>
+<h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>导言区使用<code>\usepackage &#123;ctex&#125;</code></p>
+<p>字体    使用方式    另一种使用方式<br>宋体    \songti    \CJKfamily{zhsong}<br>黑体    \heiti    \CJKfamily{zhhei}<br>仿宋    \fangsong    \CJKfamily{zhfs}<br>楷书    \kaishu    \CJKfamily{zhkai}<br>隶书    \lishu    \CJKfamily{zhli}<br>圆体    \youyuan    \CJKfamily{zhyou}<br>微软雅黑    \yahei    \CJKfamily{zhyahei}</p>
+<p>比如想设置标题为楷书，则使用：\setbeamerfont{title}{family&#x3D;\heiti}</p>
+<h2 id="颜色主题"><a href="#颜色主题" class="headerlink" title="颜色主题"></a>颜色主题</h2><p>颜色主题包含了所有元素的前景（字体颜色）和背景</p>
+<p>字体颜色的设置命令：\setbeamercolor{名字}{选项}</p>
+<p>该命令有两种用途，可以对一个颜色进行命名，可以设置一个元素的颜色</p>
+<p>参数：</p>
+<p>名字：元素的名字或者颜色的名字，颜色的名字自己取，可以包含空格</p>
+<p>选项：</p>
+<ul>
+<li>fg&#x3D;color: 前景色</li>
+<li>bg&#x3D;color: 背景色</li>
+<li>parent&#x3D;{A,B}: 表示当前样式是样式A和样式B的叠加</li>
+</ul>
+<p>颜色使用xcolor的方式书写，下图引自:</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_29657201/article/details/78161537">https://blog.csdn.net/weixin_29657201/article/details/78161537</a></p>
+<p>或者用red!50表示50%的红色，用 颜色!数字!颜色 表示百分之多少的前一种颜色和后一种颜色混合<br>beamer中字体使用fg改变颜色，背景使用bg改变颜色</p>
+<p>主要可以改变fg和bg的是footline 页脚，headline 页眉，sidebar 侧边栏，frametitle 页标题，navigation 导航栏，title标题，block body 块，block title 块标题，normal text 内环境外的字体 alert text 显著字体， section in toc，ciber 侧栏，enumerate body：有序枚举</p>
+<p>主要可以改变fg的是：author，institute，date，subject</p>
+<p>主要可以改变bg的是：background canvas</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>如何创建Beamer样式模板：<a target="_blank" rel="noopener" href="https://blog.csdn.net/HGGshiwo/article/details/113774758">https://blog.csdn.net/HGGshiwo/article/details/113774758</a></p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Fentaniao<br>
+        <strong>本文链接：</strong><a href="https://fentaniao.github.io/2022/02/06/beamer-template/" title="https:&#x2F;&#x2F;fentaniao.github.io&#x2F;2022&#x2F;02&#x2F;06&#x2F;beamer-template&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;fentaniao.github.io&#x2F;2022&#x2F;02&#x2F;06&#x2F;beamer-template&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/LaTeX/">LaTeX</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Beamer/" rel="tag">Beamer</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/LaTeX/" rel="tag">LaTeX</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1646877975934"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>

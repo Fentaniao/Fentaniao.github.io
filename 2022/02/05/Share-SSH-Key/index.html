@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>多台电脑共用SSH Key - Knowledge Base</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="实现SSH Public&#x2F;Private Key的在多台电脑中的共用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多台电脑共用SSH Key">
+<meta property="og:url" content="https://fentaniao.github.io/2022/02/05/Share-SSH-Key/index.html">
+<meta property="og:site_name" content="Knowledge Base">
+<meta property="og:description" content="实现SSH Public&#x2F;Private Key的在多台电脑中的共用。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-05T10:06:00.000Z">
+<meta property="article:modified_time" content="2022-03-10T02:04:19.429Z">
+<meta property="article:author" content="Fentaniao">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1646877975934">
+    
+    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1646877975935">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1646877975935">
+    <link rel="stylesheet" href="/css/style.css?v=1646877975935">
+     
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Fentaniao" class="mdui-btn mdui-btn-icon"><img src="https://avatars.githubusercontent.com/u/62752455?v=4" alt="Fentaniao"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Fentaniao">
+            <img src="https://avatars.githubusercontent.com/u/62752455?v=4" alt="Fentaniao" alt="Fentaniao">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>15</div>
+        <div><span>标签</span>11</div>
+        <div><span>分类</span>7</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/projects.html" title="我的项目">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                我的项目
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:fentaniao.github.io" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="mailto:fentaniao@gmail.com" target="_blank" mdui-tooltip="{content: 'Email'}" style="color: rgb(249,8,8);background-color: rgba(249,8,8,.1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/fentaniao/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/C/">C++</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Git/">Git</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/IDE-config/">IDE config</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/LaTeX/">LaTeX</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/SQL/">SQL</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Surface/">Surface</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/bash/">bash</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Beamer/" style="font-size: 10px;">Beamer</a> <a href="/tags/Clion/" style="font-size: 15px;">Clion</a> <a href="/tags/DataGrip/" style="font-size: 12.5px;">DataGrip</a> <a href="/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/tags/IDE/" style="font-size: 20px;">IDE</a> <a href="/tags/JetBrains/" style="font-size: 17.5px;">JetBrains</a> <a href="/tags/Jetbrains/" style="font-size: 10px;">Jetbrains</a> <a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a> <a href="/tags/Plugins/" style="font-size: 10px;">Plugins</a> <a href="/tags/Surface/" style="font-size: 12.5px;">Surface</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 Fentaniao
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 44.44444444444444%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="多台电脑共用SSH Key" class="lazyload">
+              <h1>多台电脑共用SSH Key</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年02月05日</a>
+</div>
+
+      
+
+      <p>实现SSH Public&#x2F;Private Key的在多台电脑中的共用。</p>
+<span id="more"></span>
+
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>我们给旧的MBP起名叫OLD, 新的叫NEW，方面后面区分</p>
+<h3 id="拷贝文件"><a href="#拷贝文件" class="headerlink" title="拷贝文件"></a>拷贝文件</h3><p>拷贝OLD上的id_rsa和id_rsa.pub到云端&#x2F;U盘&#x2F;邮箱&#x2F;…中备份。这两个文件位于用户目录下的隐藏文件夹~&#x2F;.ssh&#x2F;中。</p>
+<h3 id="生成SHH-Key"><a href="#生成SHH-Key" class="headerlink" title="生成SHH Key"></a>生成SHH Key</h3><p>在NEW的终端(Terminal)上执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config [--global] user.name <span class="hljs-string">&quot;[name]&quot;</span> //请保持和以前一样<br>git config [--global] user.email <span class="hljs-string">&quot;[email address]&quot;</span><br>ssh-keygen -t rsa<br></code></pre></td></tr></table></figure>
+
+<p>这样会在NEW的~&#x2F;.ssh&#x2F;中生成新的id_rsa和id_rsa.pub。</p>
+<h3 id="覆盖文件"><a href="#覆盖文件" class="headerlink" title="覆盖文件"></a>覆盖文件</h3><p>用备份好的OLD中的id_rsa和id_rsa.pub文件，覆盖NEW上对应的文件</p>
+<h3 id="鉴权"><a href="#鉴权" class="headerlink" title="鉴权"></a>鉴权</h3><p>确保NEW上的两个文件的权限是正确的</p>
+<p>id_rsa是600，id_rsa.pub是644，比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">-rw------- 1 fancy fancy 1675 2013-03-19 12:55 id_rsa<br>-rw-r--r-- 1 fancy fancy 406 2013-03-19 12:55 id_rsa.pub<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="SSH登陆的原理"><a href="#SSH登陆的原理" class="headerlink" title="SSH登陆的原理"></a>SSH登陆的原理</h2><p>接下来说一下SSH登陆的原理，就可以让我们弄明白这种共用Key的方法的由来。</p>
+<h3 id="什么是SSH"><a href="#什么是SSH" class="headerlink" title="什么是SSH"></a>什么是SSH</h3><p>SSH是一种网络协议，用于计算机之间的加密通信。</p>
+<h3 id="公钥Public-Key与私钥Private-Key"><a href="#公钥Public-Key与私钥Private-Key" class="headerlink" title="公钥Public Key与私钥Private Key"></a>公钥Public Key与私钥Private Key</h3><p>SSH需要生成公钥Public Key和私钥Private Key, 常用的是使用RSA算法生成id_rsa.pub和id_rsa。<br>公钥Public Key(id_rsa.pub)是可以暴露在网络传输上的，是不安全的。而私钥Private Key(id_rsa)是不可暴露的，只能存在客户端本机上。</p>
+<p>所以公钥Public Key(id_rsa.pub)的权限是644，而私钥Private Key(id_rsa)的权限只能是600。如果权限不对，SSH会认为公钥Public Key(id_rsa.pub)和私钥Private Key(id_rsa)是不可靠的，就无法正常使用SSH登陆了。</p>
+<p>同时在服务端会有一个~&#x2F;.ssh&#x2F;authorized_keys文件，里面存放了多个客户端的公钥Public Key(id_rsa.pub)，就表示拥有这些Public Key的客户端就可以通过SSH登陆服务端。</p>
+<h3 id="SSH公钥登陆过程"><a href="#SSH公钥登陆过程" class="headerlink" title="SSH公钥登陆过程"></a>SSH公钥登陆过程</h3><ol>
+<li>客户端发出公钥登陆的请求(ssh user@host)</li>
+<li>服务端返回一段随机字符串</li>
+<li>客户端用私钥Private Key(id_rsa)加密这个字符串，再发送回服务端</li>
+<li>服务端用~&#x2F;.ssh&#x2F;authorized_keys里面存储的公钥Public Key去解密收到的字符串。如果成功，就表明这个客户端是可信的，客户端就可以成功登陆</li>
+</ol>
+<p>由此可见，只要多台电脑上的的公钥Public Key(id_rsa.pub)和私钥Private Key(id_rsa)是一样的，对于服务端来说着其实就是同一个客户端。所以可以通过复制公钥Public Key(id_rsa.pub)和私钥Private Key(id_rsa)到多台电脑来实现共享登陆。</p>
+<p>这里也需要强调的是，一定要确保公钥Public Key(id_rsa.pub)和私钥Private Key(id_rsa)的安全，不要随意乱扔，乱扔它会污染环境，砸到小朋友怎么办？就算砸不到小朋友砸到花花草草也不好嘛！<br>Keep SSH Public&#x2F;Private Keys Safe</p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Fentaniao<br>
+        <strong>本文链接：</strong><a href="https://fentaniao.github.io/2022/02/05/Share-SSH-Key/" title="https:&#x2F;&#x2F;fentaniao.github.io&#x2F;2022&#x2F;02&#x2F;05&#x2F;Share-SSH-Key&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;fentaniao.github.io&#x2F;2022&#x2F;02&#x2F;05&#x2F;Share-SSH-Key&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/Git/">Git</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Git/" rel="tag">Git</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1646877975936"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>
