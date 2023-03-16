@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>使用wsl2搭建基于Tensorflow和Pytorch GPU的深度学习环境 - Knowledge Base</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="本文的主要目的是记录在WSL2中搭建使用GPU平台的深度学习框架环境的步骤与过程，包括Pytorch和TensorFlow。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用wsl2搭建基于Tensorflow和Pytorch GPU的深度学习环境">
+<meta property="og:url" content="https://fentaniao.github.io/2022/03/22/wsl2-deep-learning/index.html">
+<meta property="og:site_name" content="Knowledge Base">
+<meta property="og:description" content="本文的主要目的是记录在WSL2中搭建使用GPU平台的深度学习框架环境的步骤与过程，包括Pytorch和TensorFlow。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203222335876.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203222334107.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203222334721.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203222336167.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203222337755.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203222343676.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203222343758.jpg">
+<meta property="article:published_time" content="2022-03-22T15:59:00.000Z">
+<meta property="article:modified_time" content="2022-04-16T03:38:17.952Z">
+<meta property="article:author" content="Fentaniao">
+<meta property="article:tag" content="Deep Learning">
+<meta property="article:tag" content="wsl2">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203222335876.png">
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1678960456371">
+    
+    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1678960456371">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1678960456371">
+    <link rel="stylesheet" href="/css/style.css?v=1678960456371">
+     
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Fentaniao" class="mdui-btn mdui-btn-icon"><img src="https://avatars.githubusercontent.com/u/62752455?v=4" alt="Fentaniao"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Fentaniao">
+            <img src="https://avatars.githubusercontent.com/u/62752455?v=4" alt="Fentaniao" alt="Fentaniao">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>19</div>
+        <div><span>标签</span>13</div>
+        <div><span>分类</span>8</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/projects.html" title="我的项目">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                我的项目
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:fentaniao.github.io" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="mailto:fentaniao@gmail.com" target="_blank" mdui-tooltip="{content: 'Email'}" style="color: rgb(249,8,8);background-color: rgba(249,8,8,.1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/fentaniao/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/C/">C++</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Git/">Git</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/IDE-config/">IDE config</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/LaTeX/">LaTeX</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/SQL/">SQL</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Surface/">Surface</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/bash/">bash</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Beamer/" style="font-size: 10px;">Beamer</a> <a href="/tags/Clion/" style="font-size: 15px;">Clion</a> <a href="/tags/DataGrip/" style="font-size: 12.5px;">DataGrip</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/tags/IDE/" style="font-size: 20px;">IDE</a> <a href="/tags/JetBrains/" style="font-size: 17.5px;">JetBrains</a> <a href="/tags/Jetbrains/" style="font-size: 10px;">Jetbrains</a> <a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a> <a href="/tags/Plugins/" style="font-size: 10px;">Plugins</a> <a href="/tags/Surface/" style="font-size: 12.5px;">Surface</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/wsl2/" style="font-size: 10px;">wsl2</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2023 Fentaniao
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 44.44444444444444%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="使用wsl2搭建基于Tensorflow和Pytorch GPU的深度学习环境" class="lazyload">
+              <h1>使用wsl2搭建基于Tensorflow和Pytorch GPU的深度学习环境</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年03月22日</a>
+    <a><i class="nexmoefont icon-areachart"></i>2.1k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 10 分钟</a>
+</div>
+
+      
+
+      <p>本文的主要目的是记录在WSL2中搭建使用GPU平台的深度学习框架环境的步骤与过程，包括Pytorch和TensorFlow。</p>
+<span id="more"></span>
+
+<p>[TOC]</p>
+<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ol>
+<li>在Windows11或Windows10 21H2版本中已开启WSL2且安装了Ubuntu or Debian)</li>
+<li>配备NVIDIA显卡</li>
+</ol>
+<h2 id="初始化Ubuntu"><a href="#初始化Ubuntu" class="headerlink" title="初始化Ubuntu"></a>初始化Ubuntu</h2><ol>
+<li>输入用户名，密码</li>
+<li>更新包</li>
+</ol>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">username<br><br>password<br><br>password<br><br>sudo apt update<br><br>password<br><br>sudo apt-get upgrade<br></code></pre></td></tr></table></figure>
+
+<h2 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h2><p>二选一</p>
+<h3 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h3><p>因为我们是在Linux系统下安装Anaconda，所以选择Linux平台的64位版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh<br></code></pre></td></tr></table></figure>
+
+<p>切换到解压后的目录</p>
+<p>用<code>bash</code>命令执行<code>.sh</code>文件，开始安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash Anaconda3-2021.05-Linux-x86_64.sh<br></code></pre></td></tr></table></figure>
+
+<h3 id="安装纯Python"><a href="#安装纯Python" class="headerlink" title="安装纯Python"></a>安装纯Python</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install python3-pip python3-dev<br></code></pre></td></tr></table></figure>
+
+<h4 id="Python-2-与Python-3-的对比"><a href="#Python-2-与Python-3-的对比" class="headerlink" title="Python 2 与Python 3 的对比"></a>Python 2 与Python 3 的对比</h4><p>默认情况下，Ubuntu 在安装Python 包时使用Python 2（比如python-pip）。如果你想<br>使用Python 3，那么应该使用python3 前缀代替python。例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install python3-pip python3-dev<br></code></pre></td></tr></table></figure>
+
+<p>使用pip 安装包时要记住，它默认安装的是Python 2 的包。想要安装Python 3 的包，<br>你应该使用pip3。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pip3 install tensorflow-gpu<br></code></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="安装Python-科学套件"><a href="#安装Python-科学套件" class="headerlink" title="安装Python 科学套件"></a>安装Python 科学套件</h2><ol>
+<li>安装BLAS 库（这里安装的是OpenBLAS），确保你可以在CPU 上运行快速的张量运算。</li>
+<li>安装Python 科学套件：Numpy、SciPy 和Matplotlib。无论是否做深度学习，如果想要<br>使用Python 进行任意类型的机器学习或科学计算，这一步都是必需的。</li>
+<li>安装HDF5。这个库最初由NASA（美国国家航空航天局）开发，用高效的二进制格式<br>来保存数值数据的大文件。它可以让你将Keras 模型快速高效地保存到磁盘。</li>
+<li>安装Graphviz 和pydot-ng，这两个包可以将Keras 模型可视化。它们对运行Keras 并不<br>是必需的，所以你可以跳过这一步，在需要时再来安装这些包。</li>
+<li>安装某些代码示例中用到的其他包。</li>
+</ol>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install python3-pip python3-dev -y<br><br>sudo apt-get install build-essential cmake git unzip pkg-config libopenblas-dev liblapack-dev -y<br><br>sudo apt-get install python3-numpy python3-scipy python3-matplotlib python3-yaml -y<br><br>sudo apt-get install libhdf5-dev python3-h5py -y<br><br>sudo apt-get install graphviz -y<br><br>sudo pip3 install pydot-ng<br><br>sudo apt-get install python3-opencv -y<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="安装显卡驱动"><a href="#安装显卡驱动" class="headerlink" title="安装显卡驱动"></a>安装显卡驱动</h2><p>需要针对 WSL 的特殊版本驱动，NVIDIA <a href="https://link.zhihu.com/?target=https://developer.nvidia.com/cuda/wsl/download">官方下载网址</a>。</p>
+<p>注意此处选择的操作系统是指Windows的版本，而不是WSL中的发行版。</p>
+<p>下载后，在 <strong>Windows 环境</strong>下安装驱动。</p>
+<p>安装完驱动后，在 WSL 环境下，通过<code>nvidia-smi</code>和<code>nvidia-smi -L</code>命令，就可以看到显卡信息了。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203222335876.png" alt="image-20220322233504637" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203222334107.png" alt="image-20220322233417281" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203222334721.png" alt="image-20220322233352052" class="lazyload"></p>
+<h2 id="安装CUDA"><a href="#安装CUDA" class="headerlink" title="安装CUDA"></a>安装CUDA</h2><p>二选一</p>
+<h3 id="1-官方的安装指引"><a href="#1-官方的安装指引" class="headerlink" title="1.官方的安装指引"></a>1.官方的安装指引</h3><p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit">https://developer.nvidia.com/cuda-toolkit</a></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203222336167.png" alt="image-20220322233618074" class="lazyload"></p>
+<p>执行图上的代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://developer.download.nvidia.com/compute/cuda/11.6.1/local_installers/cuda_11.6.1_510.47.03_linux.runsudo<br>sh cuda_11.6.1_510.47.03_linux.run<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-换源安装cuda-toolkit"><a href="#2-换源安装cuda-toolkit" class="headerlink" title="2.换源安装cuda-toolkit"></a>2.换源安装cuda-toolkit</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-key adv --fetch-keys http://mirrors.aliyun.com/nvidia-cuda/ubuntu1804/x86_64/7fa2af80.pub<br><br>sudo sh -c <span class="hljs-string">&#x27;echo &quot;deb http://mirrors.aliyun.com/nvidia-cuda/ubuntu1804/x86_64 /&quot; &gt; /etc/apt/sources.list.d/cuda.list&#x27;</span><br><br>sudo apt-get update<br><br>sudo apt-get install -y cuda-toolkit-11-0<br></code></pre></td></tr></table></figure>
+
+<h3 id="设置cuda环境变量"><a href="#设置cuda环境变量" class="headerlink" title="设置cuda环境变量"></a>设置cuda环境变量</h3><p>在主目录下的<code>~/.bashrc</code>文件添加如下路径：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo su -<br>vim ~/.bashrc<br></code></pre></td></tr></table></figure>
+
+<p>末尾添加并保存：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> CUDA_HOME=/usr/local/cuda<br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$CUDA_HOME</span>/bin<br><span class="hljs-built_in">export</span> LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64<span class="hljs-variable">$&#123;LD_LIBRARY_PATH:+:<span class="hljs-variable">$&#123;LD_LIBRARY_PATH&#125;</span>&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果提示缺少相应的依赖库，直接执行如下代码自动安装相应的依赖库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libgl1-mesa-glx libglu1-mesa libglu1-mesa-dev<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="安装cuDNN"><a href="#安装cuDNN" class="headerlink" title="安装cuDNN"></a>安装cuDNN</h2><p>安装cudnn的时候需要登录Nvidia账号，直接下载:<strong>cuDNN Library for Linux (x86)</strong></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203222337755.png" alt="image-20220322233720767" class="lazyload"></p>
+<p>然后打开终端执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar -zxvf cudnn-10.2-linux-x64-v8.0.4.30.tgz<br>sudo <span class="hljs-built_in">cp</span> -P cuda/lib64/libcudnn* /usr/local/cuda-11.0/lib64/<br>sudo <span class="hljs-built_in">cp</span>  cuda/include/cudnn.h /usr/local/cuda-11.0/include/<br></code></pre></td></tr></table></figure>
+
+<p>为所有用户设置读取权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">chmod</span> a+r /usr/local/cuda-11.0/include/cudnn.h <br>sudo <span class="hljs-built_in">chmod</span> a+r /usr/local/cuda-11.0/lib64/libcudnn*<br></code></pre></td></tr></table></figure>
+
+<h3 id="验证cuda是否安装成功"><a href="#验证cuda是否安装成功" class="headerlink" title="验证cuda是否安装成功"></a>验证cuda是否安装成功</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203222343676.jpg" alt="img" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/fentaniao/image-host/img/202203222343758.jpg" alt="img" class="lazyload"></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="Keras"><a href="#Keras" class="headerlink" title="Keras"></a>Keras</h3><p>安装TensorFlow</p>
+<p>① 无论是否支持GPU，都可以使用pip从PyPI 安装TensorFlow。安装不支持GPU 的<br>TensorFlow 的命令如下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pip3 install  tensorflow<br></code></pre></td></tr></table></figure>
+
+<p>② 安装支持GPU 的TensorFlow 的命令如下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pip3 install tensorflow-gpu<br></code></pre></td></tr></table></figure>
+
+<p>安装Keras</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pip3 install keras<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p>代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf<br>mnist = tf.keras.datasets.mnist<br><br>(x_train, y_train),(x_test, y_test) = mnist.load_data()<br>x_train, x_test = x_train / <span class="hljs-number">255.0</span>, x_test / <span class="hljs-number">255.0</span><br><br>model = tf.keras.models.Sequential([<br>  tf.keras.layers.Flatten(input_shape=(<span class="hljs-number">28</span>, <span class="hljs-number">28</span>)),<br>  tf.keras.layers.Dense(<span class="hljs-number">128</span>, activation=<span class="hljs-string">&#x27;relu&#x27;</span>),<br>  tf.keras.layers.Dropout(<span class="hljs-number">0.2</span>),<br>  tf.keras.layers.Dense(<span class="hljs-number">10</span>, activation=<span class="hljs-string">&#x27;softmax&#x27;</span>)<br>])<br><br>model.<span class="hljs-built_in">compile</span>(optimizer=<span class="hljs-string">&#x27;adam&#x27;</span>,<br>              loss=<span class="hljs-string">&#x27;sparse_categorical_crossentropy&#x27;</span>,<br>              metrics=[<span class="hljs-string">&#x27;accuracy&#x27;</span>])<br><br>model.fit(x_train, y_train, epochs=<span class="hljs-number">5</span>)<br>model.evaluate(x_test, y_test)<br></code></pre></td></tr></table></figure>
+
+<p>输出</p>
+<p>输出很长，要花上一段时间，例如在GTX 1660Ti上花了一分钟。这个时候可以借机参考后面的监控GPU利用率的方法来检查显卡调用情况。</p>
+<h4 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h4><p>在安装完成后，可以用下列Python语句验证TensorFlow是否可以连接到GPU，注意激活虚拟环境后再运行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf<br>tf.test.is_gpu_available()<br>tf.config.list_physical_devices()<br></code></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">2022</span>-<span class="hljs-number">03</span>-<span class="hljs-number">22</span> <span class="hljs-number">23</span>:<span class="hljs-number">53</span>:<span class="hljs-number">58</span>.<span class="hljs-number">209067</span>: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:<span class="hljs-number">922</span>] could not open file to read NUMA node: /sys/bus/pci/devices/<span class="hljs-number">0000</span>:<span class="hljs-number">02</span>:<span class="hljs-number">00</span>.<span class="hljs-number">0</span>/numa_node<br><span class="hljs-attribute">Your</span> kernel may have been built without NUMA support.<br><span class="hljs-attribute">2022</span>-<span class="hljs-number">03</span>-<span class="hljs-number">22</span> <span class="hljs-number">23</span>:<span class="hljs-number">53</span>:<span class="hljs-number">58</span>.<span class="hljs-number">210941</span>: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:<span class="hljs-number">922</span>] could not open file to read NUMA node: /sys/bus/pci/devices/<span class="hljs-number">0000</span>:<span class="hljs-number">02</span>:<span class="hljs-number">00</span>.<span class="hljs-number">0</span>/numa_node<br><span class="hljs-attribute">Your</span> kernel may have been built without NUMA support.<br><span class="hljs-attribute">2022</span>-<span class="hljs-number">03</span>-<span class="hljs-number">22</span> <span class="hljs-number">23</span>:<span class="hljs-number">53</span>:<span class="hljs-number">58</span>.<span class="hljs-number">211774</span>: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:<span class="hljs-number">922</span>] could not open file to read NUMA node: /sys/bus/pci/devices/<span class="hljs-number">0000</span>:<span class="hljs-number">02</span>:<span class="hljs-number">00</span>.<span class="hljs-number">0</span>/numa_node<br><span class="hljs-attribute">Your</span> kernel may have been built without NUMA support.<br><span class="hljs-attribute">2022</span>-<span class="hljs-number">03</span>-<span class="hljs-number">22</span> <span class="hljs-number">23</span>:<span class="hljs-number">53</span>:<span class="hljs-number">58</span>.<span class="hljs-number">216025</span>: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:<span class="hljs-number">922</span>] could not open file to read NUMA node: /sys/bus/pci/devices/<span class="hljs-number">0000</span>:<span class="hljs-number">02</span>:<span class="hljs-number">00</span>.<span class="hljs-number">0</span>/numa_node<br><span class="hljs-attribute">Your</span> kernel may have been built without NUMA support.<br><span class="hljs-attribute">2022</span>-<span class="hljs-number">03</span>-<span class="hljs-number">22</span> <span class="hljs-number">23</span>:<span class="hljs-number">53</span>:<span class="hljs-number">58</span>.<span class="hljs-number">216161</span>: I tensorflow/core/common_runtime/gpu/gpu_device.cc:<span class="hljs-number">1609</span>] Could not identify NUMA node of platform GPU id <span class="hljs-number">0</span>, defaulting to <span class="hljs-number">0</span>.  Your kernel may not have been built with NUMA support.<br><span class="hljs-attribute">2022</span>-<span class="hljs-number">03</span>-<span class="hljs-number">22</span> <span class="hljs-number">23</span>:<span class="hljs-number">53</span>:<span class="hljs-number">58</span>.<span class="hljs-number">217104</span>: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:<span class="hljs-number">922</span>] could not open file to read NUMA node: /sys/bus/pci/devices/<span class="hljs-number">0000</span>:<span class="hljs-number">02</span>:<span class="hljs-number">00</span>.<span class="hljs-number">0</span>/numa_node<br><span class="hljs-attribute">Your</span> kernel may have been built without NUMA support.<br><span class="hljs-attribute">2022</span>-<span class="hljs-number">03</span>-<span class="hljs-number">22</span> <span class="hljs-number">23</span>:<span class="hljs-number">53</span>:<span class="hljs-number">58</span>.<span class="hljs-number">217737</span>: I tensorflow/core/common_runtime/gpu/gpu_device.cc:<span class="hljs-number">1525</span>] Created device /device:GPU:<span class="hljs-number">0</span> with <span class="hljs-number">3954</span> MB memory:  -&gt; device: <span class="hljs-number">0</span>, name: NVIDIA GeForce GTX <span class="hljs-number">1660</span> Ti with Max-Q Design, pci bus id: <span class="hljs-number">0000</span>:<span class="hljs-number">02</span>:<span class="hljs-number">00</span>.<span class="hljs-number">0</span>, compute capability: <span class="hljs-number">7</span>.<span class="hljs-number">5</span><br><span class="hljs-attribute">True</span><span class="hljs-meta"></span><br><span class="hljs-meta">[PhysicalDevice(name=&#x27;/physical_device:CPU:0&#x27;, device_type=&#x27;CPU&#x27;), PhysicalDevice(name=&#x27;/physical_device:GPU:0&#x27;, device_type=&#x27;GPU&#x27;)]</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h3><p>根据对应的CUdA版本安装对应的pytorch 官网：<a href="https://link.zhihu.com/?target=https://pytorch.org/">https://pytorch.org/</a> 下载pytorch</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio===0.7.2 -f https://download.pytorch.org/whl/torch_stable.html<br></code></pre></td></tr></table></figure>
+
+<h4 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h4><p>代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br>x = torch.rand(<span class="hljs-number">5</span>,<span class="hljs-number">3</span>)<br><span class="hljs-built_in">print</span>(x)<br></code></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">tensor</span>([[<span class="hljs-number">0</span>.<span class="hljs-number">9943</span>, <span class="hljs-number">0</span>.<span class="hljs-number">2830</span>, <span class="hljs-number">0</span>.<span class="hljs-number">5508</span>],<span class="hljs-meta"> [0.0765, 0.6474, 0.0059], [0.7241, 0.1868, 0.5398], [0.3217, 0.4664, 0.4242], [0.3351, 0.2482, 0.7371]])</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="示例2-1"><a href="#示例2-1" class="headerlink" title="示例2"></a>示例2</h4><p>代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">torch.cuda.is_available()<br></code></pre></td></tr></table></figure>
+
+<p>输出为<code>True</code>即证明支持GPU了。</p>
+<h3 id="监控GPU利用率"><a href="#监控GPU利用率" class="headerlink" title="监控GPU利用率"></a>监控GPU利用率</h3><p>运行脚本时，可以在另一个shell 窗口中监控GPU利用率。</p>
+<h4 id="显卡名称"><a href="#显卡名称" class="headerlink" title="显卡名称"></a>显卡名称</h4><p>在其中输入<code>nvidia-smi -L</code>命令，正常情况下应该可以显示出显卡的名称。</p>
+<p>输出</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">GPU</span> <span class="hljs-number">0</span>: NVIDIA GeForce GTX <span class="hljs-number">1660</span> Ti with Max-Q Design (UUID: GPU-aed9c4ba-c9b4-<span class="hljs-number">0910</span>-<span class="hljs-number">6110</span>-<span class="hljs-number">9236</span>d882f851)<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="瞬时情况"><a href="#瞬时情况" class="headerlink" title="瞬时情况"></a>瞬时情况</h4><p>代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">NVIDIA-smi<br></code></pre></td></tr></table></figure>
+
+<p>效果</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">Tue Mar 22 22:38:35 2022<br>+-----------------------------------------------------------------------------+<br>|<span class="hljs-string"> NVIDIA-SMI 510.52       Driver Version: 511.79       CUDA Version: 11.6     </span>|<br>|<span class="hljs-string">-------------------------------+----------------------+----------------------+</span><br><span class="hljs-string"></span>|<span class="hljs-string"> GPU  Name        Persistence-M</span>|<span class="hljs-string"> Bus-Id        Disp.A </span>|<span class="hljs-string"> Volatile Uncorr. ECC </span>|<br>|<span class="hljs-string"> Fan  Temp  Perf  Pwr:Usage/Cap</span>|<span class="hljs-string">         Memory-Usage </span>|<span class="hljs-string"> GPU-Util  Compute M. </span>|<br>|<span class="hljs-string">                               </span>|<span class="hljs-string">                      </span>|<span class="hljs-string">               MIG M. </span>|<br>|<span class="hljs-string">===============================+======================+======================</span>|<br>|<span class="hljs-string">   0  NVIDIA GeForce ...  On   </span>|<span class="hljs-string"> 00000000:02:00.0 Off </span>|<span class="hljs-string">                  N/A </span>|<br>|<span class="hljs-string">  0%   41C    P8     6W /  N/A </span>|<span class="hljs-string">   4412MiB /  6144MiB </span>|<span class="hljs-string">     23%      Default </span>|<br>|<span class="hljs-string">                               </span>|<span class="hljs-string">                      </span>|<span class="hljs-string">                  N/A </span>|<br>+-------------------------------+----------------------+----------------------+<br><br>+-----------------------------------------------------------------------------+<br>|<span class="hljs-string"> Processes:                                                                  </span>|<br>|<span class="hljs-string">  GPU   GI   CI        PID   Type   Process name                  GPU Memory </span>|<br>|<span class="hljs-string">        ID   ID                                                   Usage      </span>|<br>|<span class="hljs-string">=============================================================================</span>|<br>|<span class="hljs-string">    0   N/A  N/A      2400      C   /python3.8                      N/A      </span>|<br>|<span class="hljs-string">    0   N/A  N/A     32447      G   /Xwayland                       N/A      </span>|<br>+-----------------------------------------------------------------------------+<br></code></pre></td></tr></table></figure>
+
+<h4 id="实时情况"><a href="#实时情况" class="headerlink" title="实时情况"></a>实时情况</h4><p>代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">watch -n 5 NVIDIA-smi -a --display=utilization<br></code></pre></td></tr></table></figure>
+
+<p>效果</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs routeros">Every 5.0s: NVIDIA-smi -a <span class="hljs-attribute">--display</span>=utilization                          DESKTOP-C18S314: Tue Mar 22 23:02:48 2022<br><br>==============NVSMI <span class="hljs-attribute">LOG</span>==============<br><br>Timestamp                                 : Tue Mar 22 23:02:48 2022<br>Driver Version                            : 511.79<br>CUDA Version                              : 11.6<br><br>Attached GPUs                             : 1<br>GPU 00000000:02:00.0<br>    Utilization<br>        Gpu                               : 0 %<br>        Memory                            : 0 %<br>        Encoder                           : 0 %<br>        Decoder                           : 0 %<br>    GPU Utilization Samples<br>        Duration                          : Unknown <span class="hljs-built_in">Error</span><br>        Number of Samples                 : Unknown <span class="hljs-built_in">Error</span><br>        Max                               : Unknown <span class="hljs-built_in">Error</span><br>        Min                               : Unknown <span class="hljs-built_in">Error</span><br>        Avg                               : Unknown <span class="hljs-built_in">Error</span><br>    Memory Utilization Samples<br>        Duration                          : Unknown <span class="hljs-built_in">Error</span><br>        Number of Samples                 : Unknown <span class="hljs-built_in">Error</span><br>        Max                               : Unknown <span class="hljs-built_in">Error</span><br>        Min                               : Unknown <span class="hljs-built_in">Error</span><br>        Avg                               : Unknown <span class="hljs-built_in">Error</span><br>    ENC Utilization Samples<br></code></pre></td></tr></table></figure>
+
+<h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><p>官方安装CUDA的方法好像不起效</p>
+<h3 id="报错-1"><a href="#报错-1" class="headerlink" title="报错"></a>报错</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看cuda是否安装成功</span><br>nvcc -V<br></code></pre></td></tr></table></figure>
+
+<h3 id="报错-2"><a href="#报错-2" class="headerlink" title="报错"></a>报错</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /usr/local/cuda/samples/4_Finance/BlackScholes<br>sudo make<br>./BlackScholes<br><span class="hljs-comment"># 好像是11.0可以这样</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li>如何使用wsl2搭建基于Tensorflow GPU的深度学习环境？ - Lyle Chen的回答 - 知乎：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/449808839/answer/2299274273">https://www.zhihu.com/question/449808839/answer/2299274273</a></li>
+<li>如何使用wsl2搭建基于Tensorflow GPU的深度学习环境？ - winson的回答 - 知乎：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/449808839/answer/2389045278">https://www.zhihu.com/question/449808839/answer/2389045278</a></li>
+<li>win10的wsl2安装cuda并配置pytorch：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/350399229">https://zhuanlan.zhihu.com/p/350399229</a></li>
+<li>windows10 + wsl2,使用NVIDIA gpu：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Tyronne/article/details/109319058">https://blog.csdn.net/Tyronne/article/details/109319058</a></li>
+</ul>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Fentaniao<br>
+        <strong>本文链接：</strong><a href="https://fentaniao.github.io/2022/03/22/wsl2-deep-learning/" title="https:&#x2F;&#x2F;fentaniao.github.io&#x2F;2022&#x2F;03&#x2F;22&#x2F;wsl2-deep-learning&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;fentaniao.github.io&#x2F;2022&#x2F;03&#x2F;22&#x2F;wsl2-deep-learning&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/Deep-Learning/">Deep Learning</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Deep-Learning/" rel="tag">Deep Learning</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/wsl2/" rel="tag">wsl2</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1678960456372"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>

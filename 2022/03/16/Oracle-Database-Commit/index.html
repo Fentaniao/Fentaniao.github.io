@@ -4,7 +4,7 @@
 
 <head>
     
-    <title>文章归档 - Knowledge Base</title>
+    <title>Oracle中COMMIT的用法 - Knowledge Base</title>
     <meta charset="UTF-8">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -12,22 +12,22 @@
     
 
     <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="the Knowledge Base of Fentaniao">
-<meta property="og:type" content="website">
-<meta property="og:title" content="文章归档">
-<meta property="og:url" content="https://fentaniao.github.io/archive.html">
+    <meta name="description" content="Oracle中COMMIT语句的用法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle中COMMIT的用法">
+<meta property="og:url" content="https://fentaniao.github.io/2022/03/16/Oracle-Database-Commit/index.html">
 <meta property="og:site_name" content="Knowledge Base">
-<meta property="og:description" content="the Knowledge Base of Fentaniao">
+<meta property="og:description" content="Oracle中COMMIT语句的用法">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-10T02:04:19.481Z">
-<meta property="article:modified_time" content="2022-03-10T02:04:19.481Z">
+<meta property="article:published_time" content="2022-03-16T04:19:00.000Z">
+<meta property="article:modified_time" content="2022-04-16T03:38:17.948Z">
 <meta property="article:author" content="Fentaniao">
 <meta name="twitter:card" content="summary">
-    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1678960456361">
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1678960456373">
     
-    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1678960456361">
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1678960456361">
-    <link rel="stylesheet" href="/css/style.css?v=1678960456361">
+    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1678960456373">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1678960456373">
+    <link rel="stylesheet" href="/css/style.css?v=1678960456373">
      
     
         <link rel="stylesheet" href="/custom.css">
@@ -68,7 +68,7 @@
             </div>
         </a>
         
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple true" href="/archive.html" title="文章归档">
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
             <i class="mdui-list-item-icon nexmoefont icon-container"></i>
             <div class="mdui-list-item-content">
                 文章归档
@@ -208,207 +208,80 @@
     </div>
     <div id="nexmoe-content">
         <div class="nexmoe-primary">
-            <section class="nexmoe-archives">
-    
-    <div class="tagcloud nexmoe-rainbow">
-        <a class="mdui-ripple -unordered list-link" href="/tags/Beamer/" rel="tag">Beamer<span class="mdui-ripple -unordered list-count">1</span></a><a class="mdui-ripple -unordered list-link" href="/tags/Clion/" rel="tag">Clion<span class="mdui-ripple -unordered list-count">4</span></a><a class="mdui-ripple -unordered list-link" href="/tags/DataGrip/" rel="tag">DataGrip<span class="mdui-ripple -unordered list-count">2</span></a><a class="mdui-ripple -unordered list-link" href="/tags/Deep-Learning/" rel="tag">Deep Learning<span class="mdui-ripple -unordered list-count">1</span></a><a class="mdui-ripple -unordered list-link" href="/tags/Git/" rel="tag">Git<span class="mdui-ripple -unordered list-count">2</span></a><a class="mdui-ripple -unordered list-link" href="/tags/IDE/" rel="tag">IDE<span class="mdui-ripple -unordered list-count">8</span></a><a class="mdui-ripple -unordered list-link" href="/tags/JetBrains/" rel="tag">JetBrains<span class="mdui-ripple -unordered list-count">7</span></a><a class="mdui-ripple -unordered list-link" href="/tags/Jetbrains/" rel="tag">Jetbrains<span class="mdui-ripple -unordered list-count">1</span></a><a class="mdui-ripple -unordered list-link" href="/tags/LaTeX/" rel="tag">LaTeX<span class="mdui-ripple -unordered list-count">1</span></a><a class="mdui-ripple -unordered list-link" href="/tags/Plugins/" rel="tag">Plugins<span class="mdui-ripple -unordered list-count">1</span></a><a class="mdui-ripple -unordered list-link" href="/tags/Surface/" rel="tag">Surface<span class="mdui-ripple -unordered list-count">2</span></a><a class="mdui-ripple -unordered list-link" href="/tags/bash/" rel="tag">bash<span class="mdui-ripple -unordered list-count">1</span></a><a class="mdui-ripple -unordered list-link" href="/tags/wsl2/" rel="tag">wsl2<span class="mdui-ripple -unordered list-count">1</span></a>
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 44.44444444444444%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Oracle中COMMIT的用法" class="lazyload">
+              <h1>Oracle中COMMIT的用法</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年03月16日</a>
+    <a><i class="nexmoefont icon-areachart"></i>405 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+</div>
+
+      
+
+      <p>Oracle中COMMIT语句的用法</p>
+<span id="more"></span>
+
+<h2 id="COMMIT"><a href="#COMMIT" class="headerlink" title="COMMIT"></a>COMMIT</h2><p>在Oracle中，COMMIT语句可以用来提交当前事务的所有更改。提交后，其他用户将能够看到您的更改。</p>
+<h2 id="SQL语言分类"><a href="#SQL语言分类" class="headerlink" title="SQL语言分类"></a>SQL语言分类</h2><p>SQL语言分为五大类：</p>
+<ul>
+<li>DDL(数据定义语言) - Create、Alter、Drop 这些语句自动提交，无需用Commit提交。</li>
+<li>DQL(数据查询语言) - Select 查询语句不存在提交问题。</li>
+<li>DML(数据操纵语言) - Insert、Update、Delete 这些语句需要Commit才能提交。</li>
+<li>DTL(事务控制语言) - Commit、Rollback 事务提交与回滚语句。</li>
+<li>DCL(数据控制语言) - Grant、Revoke 授予权限与回收权限语句。</li>
+</ul>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><h4 id="DDL-数据定义语言："><a href="#DDL-数据定义语言：" class="headerlink" title="DDL 数据定义语言："></a>DDL 数据定义语言：</h4><ul>
+<li>create table 创建表</li>
+<li>alter table 修改表</li>
+<li>drop table 删除表</li>
+<li>truncate table 删除表中所有行</li>
+<li>create index 创建索引</li>
+<li>drop index 删除索引</li>
+</ul>
+<p>当执行DDL语句时，在每一条语句前后，oracle都将提交当前的事务。如果用户使用insert命令将记录插入到数据库后，执行了一条DDL语句(如create table)，此时来自insert命令的数据将被提交到数据库。当DDL语句执行完成时，DDL语句会被自动提交，不能回滚。</p>
+<h4 id="DML-数据操作语言："><a href="#DML-数据操作语言：" class="headerlink" title="DML 数据操作语言："></a>DML 数据操作语言：</h4><ul>
+<li>insert 将记录插入到数据库 </li>
+<li>update 修改数据库的记录 </li>
+<li>delete 删除数据库的记录</li>
+</ul>
+<p>当执行DML命令如果没有提交，将不会被其他会话看到。除非在DML命令之后执行了DDL命令或DCL命令，或用户退出会话，或终止实例，此时系统会自动发出commit命令，使未提交的DML命令提交。</p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Fentaniao<br>
+        <strong>本文链接：</strong><a href="https://fentaniao.github.io/2022/03/16/Oracle-Database-Commit/" title="https:&#x2F;&#x2F;fentaniao.github.io&#x2F;2022&#x2F;03&#x2F;16&#x2F;Oracle-Database-Commit&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;fentaniao.github.io&#x2F;2022&#x2F;03&#x2F;16&#x2F;Oracle-Database-Commit&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
     </div>
 
-    <div class="categories nexmoe-rainbow-fill">
-        
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
 
-            <a class="mdui-ripple" href="/categories/C/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>C++</h1>
-            </a>
-        
-            
-            
-                
-                
-            
-
-            <a class="mdui-ripple" href="/categories/Deep-Learning/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>Deep Learning</h1>
-            </a>
-        
-            
-            
-                
-                
-            
-                
-                
-            
-
-            <a class="mdui-ripple" href="/categories/Git/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>Git</h1>
-            </a>
-        
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-
-            <a class="mdui-ripple" href="/categories/IDE-config/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>IDE config</h1>
-            </a>
-        
-            
-            
-                
-                
-            
-
-            <a class="mdui-ripple" href="/categories/LaTeX/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>LaTeX</h1>
-            </a>
-        
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-
-            <a class="mdui-ripple" href="/categories/SQL/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>SQL</h1>
-            </a>
-        
-            
-            
-                
-                
-            
-                
-                
-            
-
-            <a class="mdui-ripple" href="/categories/Surface/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>Surface</h1>
-            </a>
-        
-            
-            
-                
-                
-            
-
-            <a class="mdui-ripple" href="/categories/bash/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>bash</h1>
-            </a>
-        
-    </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
     
-    <article>
-        
-        
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/SQL/">SQL</a>
+    
+    
+</div>
 
-        
-            <h2>2022</h2>
-            <ul>
-            
-                <li><span>03-30</span><a href="/2022/03/30/Oracle-Database-Connect/" >Oracle数据库无法正常连接的解决方案</a></li>
-            
-                <li><span>03-30</span><a href="/2022/03/30/Oracle-start-listener/" >Oracle中解决数据库监听程序消失的解决方案</a></li>
-            
-                <li><span>03-22</span><a href="/2022/03/22/wsl2-deep-learning/" >使用wsl2搭建基于Tensorflow和Pytorch GPU的深度学习环境</a></li>
-            
-                <li><span>03-16</span><a href="/2022/03/16/Oracle-Database-Commit/" >Oracle中COMMIT的用法</a></li>
-            
-                <li><span>03-09</span><a href="/2022/03/09/Oracle-Database-Login/" >Oracle中如何创建和连接用户</a></li>
-            
-                <li><span>03-02</span><a href="/2022/03/02/Oracle-Rename-Error/" >Oracle表空间数据文件重命名和修改路径时报错的解决方案</a></li>
-            
-                <li><span>02-28</span><a href="/2022/02/28/Clear-Git-Commit/" >如何清除Git所有历史提交记录</a></li>
-            
-                <li><span>02-26</span><a href="/2022/02/26/Batch-file-include-external-variables/" >Batch file include external file for variables</a></li>
-            
-                <li><span>02-23</span><a href="/2022/02/23/Oracle-Database-Install/" >Oracle数据库安装的解决方案</a></li>
-            
-                <li><span>02-06</span><a href="/2022/02/06/beamer-template/" >如何创建Beamer样式模板</a></li>
-            
-                <li><span>02-05</span><a href="/2022/02/05/Share-SSH-Key/" >多台电脑共用SSH Key</a></li>
-            
-            </ul>
-        
-            <h2>2021</h2>
-            <ul>
-            
-                <li><span>10-20</span><a href="/2021/10/20/Cpp-pass-variable-name-as-string/" >C++中将变量名作为字符串传递的解决方案</a></li>
-            
-                <li><span>10-19</span><a href="/2021/10/19/CMake-Configuration/" >CMake Configuration</a></li>
-            
-                <li><span>10-19</span><a href="/2021/10/19/Cpp-format/" >CMakeLists.txt格式和.h头文件的格式</a></li>
-            
-                <li><span>10-19</span><a href="/2021/10/19/Plugins-List/" >Useful Plugins for JetBrains IDE</a></li>
-            
-                <li><span>10-17</span><a href="/2021/10/17/gdb-debug/" >Debug with GDB</a></li>
-            
-                <li><span>10-17</span><a href="/2021/10/17/Surface-Pen/" >All JetBrains IDEs are not responding properly to touch and Surface Pen input.</a></li>
-            
-                <li><span>10-10</span><a href="/2021/10/10/Clion-cannot-kill-process/" >Clion Failed to Kill Process</a></li>
-            
-                <li><span>05-24</span><a href="/2021/05/24/Attention-For-Microsoft-Wireless-Display-Adapter/" >Attention for MS Wireless Display Adapter</a></li>
-            
-            </ul>
-        
-    </article>
-</section>
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>
             <div class="nexmoe-post-right">
               <div class="nexmoe-fixed">
                   <div class="nexmoe-tool"> 
@@ -440,7 +313,7 @@
 
  
 
-<script async src="/js/app.js?v=1678960456362"></script>
+<script async src="/js/app.js?v=1678960456375"></script>
 
 
 

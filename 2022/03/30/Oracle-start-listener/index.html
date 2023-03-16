@@ -4,7 +4,7 @@
 
 <head>
     
-    <title>文章归档 - Knowledge Base</title>
+    <title>Oracle中解决数据库监听程序消失的解决方案 - Knowledge Base</title>
     <meta charset="UTF-8">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -12,22 +12,22 @@
     
 
     <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="the Knowledge Base of Fentaniao">
-<meta property="og:type" content="website">
-<meta property="og:title" content="文章归档">
-<meta property="og:url" content="https://fentaniao.github.io/archive.html">
+    <meta name="description" content="Oracle中解决数据库监听程序消失的解决方案">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle中解决数据库监听程序消失的解决方案">
+<meta property="og:url" content="https://fentaniao.github.io/2022/03/30/Oracle-start-listener/index.html">
 <meta property="og:site_name" content="Knowledge Base">
-<meta property="og:description" content="the Knowledge Base of Fentaniao">
+<meta property="og:description" content="Oracle中解决数据库监听程序消失的解决方案">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-10T02:04:19.481Z">
-<meta property="article:modified_time" content="2022-03-10T02:04:19.481Z">
+<meta property="article:published_time" content="2022-03-30T06:18:00.000Z">
+<meta property="article:modified_time" content="2022-04-16T03:38:17.951Z">
 <meta property="article:author" content="Fentaniao">
 <meta name="twitter:card" content="summary">
-    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1678960456361">
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1678960456368">
     
-    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1678960456361">
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1678960456361">
-    <link rel="stylesheet" href="/css/style.css?v=1678960456361">
+    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1678960456368">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1678960456368">
+    <link rel="stylesheet" href="/css/style.css?v=1678960456368">
      
     
         <link rel="stylesheet" href="/custom.css">
@@ -68,7 +68,7 @@
             </div>
         </a>
         
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple true" href="/archive.html" title="文章归档">
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
             <i class="mdui-list-item-icon nexmoefont icon-container"></i>
             <div class="mdui-list-item-content">
                 文章归档
@@ -208,207 +208,78 @@
     </div>
     <div id="nexmoe-content">
         <div class="nexmoe-primary">
-            <section class="nexmoe-archives">
-    
-    <div class="tagcloud nexmoe-rainbow">
-        <a class="mdui-ripple -unordered list-link" href="/tags/Beamer/" rel="tag">Beamer<span class="mdui-ripple -unordered list-count">1</span></a><a class="mdui-ripple -unordered list-link" href="/tags/Clion/" rel="tag">Clion<span class="mdui-ripple -unordered list-count">4</span></a><a class="mdui-ripple -unordered list-link" href="/tags/DataGrip/" rel="tag">DataGrip<span class="mdui-ripple -unordered list-count">2</span></a><a class="mdui-ripple -unordered list-link" href="/tags/Deep-Learning/" rel="tag">Deep Learning<span class="mdui-ripple -unordered list-count">1</span></a><a class="mdui-ripple -unordered list-link" href="/tags/Git/" rel="tag">Git<span class="mdui-ripple -unordered list-count">2</span></a><a class="mdui-ripple -unordered list-link" href="/tags/IDE/" rel="tag">IDE<span class="mdui-ripple -unordered list-count">8</span></a><a class="mdui-ripple -unordered list-link" href="/tags/JetBrains/" rel="tag">JetBrains<span class="mdui-ripple -unordered list-count">7</span></a><a class="mdui-ripple -unordered list-link" href="/tags/Jetbrains/" rel="tag">Jetbrains<span class="mdui-ripple -unordered list-count">1</span></a><a class="mdui-ripple -unordered list-link" href="/tags/LaTeX/" rel="tag">LaTeX<span class="mdui-ripple -unordered list-count">1</span></a><a class="mdui-ripple -unordered list-link" href="/tags/Plugins/" rel="tag">Plugins<span class="mdui-ripple -unordered list-count">1</span></a><a class="mdui-ripple -unordered list-link" href="/tags/Surface/" rel="tag">Surface<span class="mdui-ripple -unordered list-count">2</span></a><a class="mdui-ripple -unordered list-link" href="/tags/bash/" rel="tag">bash<span class="mdui-ripple -unordered list-count">1</span></a><a class="mdui-ripple -unordered list-link" href="/tags/wsl2/" rel="tag">wsl2<span class="mdui-ripple -unordered list-count">1</span></a>
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 44.44444444444444%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Oracle中解决数据库监听程序消失的解决方案" class="lazyload">
+              <h1>Oracle中解决数据库监听程序消失的解决方案</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年03月30日</a>
+    <a><i class="nexmoefont icon-areachart"></i>684 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+</div>
+
+      
+
+      <p>Oracle中解决数据库监听程序消失的解决方案</p>
+<span id="more"></span>
+
+<h2 id="Oracle-12c-数据库监听程序消失解决方法"><a href="#Oracle-12c-数据库监听程序消失解决方法" class="headerlink" title="Oracle 12c 数据库监听程序消失解决方法"></a>Oracle 12c 数据库监听程序消失解决方法</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>Oracle SQL develper，数据库连接不上，报路径不存在——&gt;监听服务Listener消失，OracleService存在；sqlplus可运行，却无法连接到数据库；<code>lsnrctl status</code>及<code>lsnrctl start</code>报错。</p>
+<h3 id="原因推测"><a href="#原因推测" class="headerlink" title="原因推测"></a>原因推测</h3><p>可能被杀毒软件当作恶意程序删除。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="查询监听状态报错，无法启动监听"><a href="#查询监听状态报错，无法启动监听" class="headerlink" title="查询监听状态报错，无法启动监听"></a>查询监听状态报错，无法启动监听</h4><p>在CMD中检查监听程序状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lsnrctl status<br></code></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs text">LSNRCTL for 64-bit Windows: Version 12.2.0.1.0 - Production on 30-7月 -2017 21:32:39<br><br>Copyright (c) 1991, 2016, Oracle.  All rights reserved.<br><br>正在连接到 (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.0.6)(PORT=1521)))<br>TNS-12541: TNS: 无监听程序<br>TNS-12560: TNS: 协议适配器错误<br>TNS-00511: 无监听程序<br>64-bit Windows Error: 61: Unknown error<br>正在连接到 (DESCRIPTION=(ADDRESS=(PROTOCOL=IPC)(KEY=EXTPROC1521)))<br>TNS-12541: TNS: 无监听程序<br>TNS-12560: TNS: 协议适配器错误<br>TNS-00511: 无监听程序<br>64-bit Windows Error: 2: No such file or directory<br></code></pre></td></tr></table></figure>
+
+<p>方法</p>
+<ol>
+<li>使用Oracle Net Configuration Assistant 重新配置监听程序；</li>
+<li>使用Oracle Net Manager配置监听程序和相应服务，注意数据库服务中的全局数据库名称、SID。</li>
+<li>&#x3D;&#x3D;以administrator身份启动监听服务&#x3D;&#x3D;，在CMD中输入<code>lsnrctl start</code>。</li>
+</ol>
+<h4 id="SQL-developer出错。"><a href="#SQL-developer出错。" class="headerlink" title="SQL developer出错。"></a>SQL developer出错。</h4><p>经过第一步处理之后，任务管理器中监听服务Listener出现，注册表编辑器中也出现Listener一项，sqlplus可正常连接数据库，然而SQL developer的原有连接测试失败，无法连接。</p>
+<p>方法：将所建连接的本机名localhost改为IP地址，连接成功。</p>
+<h2 id="oracle监听程序的配置"><a href="#oracle监听程序的配置" class="headerlink" title="oracle监听程序的配置"></a>oracle监听程序的配置</h2><h3 id="背景资料"><a href="#背景资料" class="headerlink" title="背景资料"></a>背景资料</h3><p>•监听程序是驻留在Oracle数据库服务器上的一种进程，其职责是监听客户机连接请求和管理服务器的通行量。<br>•每次客户机请求与服务器进行会话时，监听程序就接收到实际请求。<br>•如果客户机的信息与监听程序的信息相匹配，监听程序就授权连接服务器。<br>•客户机上建立与服务器的连接过程实际上就是建立和服务器上的监听程序连接的过程。<br>•客户机必须配置有与服务器协议地址相同的连接描述方才能像监听程序发送连接请求。</p>
+<h3 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h3><p>（1）[开始]–〉[程序]–〉[Oracle-OraDb10g_Home1]–〉[Configuration and Migration Tools]–〉[Net Configuration Assistant]，出现[Oracle Net Configuration Assistant ：欢迎使用]对话框。选择[监听程序配置]，单击[下一步]。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>Oracle 12c 数据库监听程序消失解决方法：  <a target="_blank" rel="noopener" href="https://blog.csdn.net/u014351755/article/details/76419725">https://blog.csdn.net/u014351755/article/details/76419725</a></li>
+<li>oracle监听程序的配置：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ITxiaobaibai/article/details/81302490">https://blog.csdn.net/ITxiaobaibai/article/details/81302490</a></li>
+</ul>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Fentaniao<br>
+        <strong>本文链接：</strong><a href="https://fentaniao.github.io/2022/03/30/Oracle-start-listener/" title="https:&#x2F;&#x2F;fentaniao.github.io&#x2F;2022&#x2F;03&#x2F;30&#x2F;Oracle-start-listener&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;fentaniao.github.io&#x2F;2022&#x2F;03&#x2F;30&#x2F;Oracle-start-listener&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
     </div>
 
-    <div class="categories nexmoe-rainbow-fill">
-        
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
 
-            <a class="mdui-ripple" href="/categories/C/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>C++</h1>
-            </a>
-        
-            
-            
-                
-                
-            
-
-            <a class="mdui-ripple" href="/categories/Deep-Learning/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>Deep Learning</h1>
-            </a>
-        
-            
-            
-                
-                
-            
-                
-                
-            
-
-            <a class="mdui-ripple" href="/categories/Git/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>Git</h1>
-            </a>
-        
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-
-            <a class="mdui-ripple" href="/categories/IDE-config/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>IDE config</h1>
-            </a>
-        
-            
-            
-                
-                
-            
-
-            <a class="mdui-ripple" href="/categories/LaTeX/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>LaTeX</h1>
-            </a>
-        
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-
-            <a class="mdui-ripple" href="/categories/SQL/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>SQL</h1>
-            </a>
-        
-            
-            
-                
-                
-            
-                
-                
-            
-
-            <a class="mdui-ripple" href="/categories/Surface/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>Surface</h1>
-            </a>
-        
-            
-            
-                
-                
-            
-
-            <a class="mdui-ripple" href="/categories/bash/">
-                <div class="bg" style="background-image:url()"></div>
-                <h1>bash</h1>
-            </a>
-        
-    </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
     
-    <article>
-        
-        
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/SQL/">SQL</a>
+    
+    
+</div>
 
-        
-            <h2>2022</h2>
-            <ul>
-            
-                <li><span>03-30</span><a href="/2022/03/30/Oracle-Database-Connect/" >Oracle数据库无法正常连接的解决方案</a></li>
-            
-                <li><span>03-30</span><a href="/2022/03/30/Oracle-start-listener/" >Oracle中解决数据库监听程序消失的解决方案</a></li>
-            
-                <li><span>03-22</span><a href="/2022/03/22/wsl2-deep-learning/" >使用wsl2搭建基于Tensorflow和Pytorch GPU的深度学习环境</a></li>
-            
-                <li><span>03-16</span><a href="/2022/03/16/Oracle-Database-Commit/" >Oracle中COMMIT的用法</a></li>
-            
-                <li><span>03-09</span><a href="/2022/03/09/Oracle-Database-Login/" >Oracle中如何创建和连接用户</a></li>
-            
-                <li><span>03-02</span><a href="/2022/03/02/Oracle-Rename-Error/" >Oracle表空间数据文件重命名和修改路径时报错的解决方案</a></li>
-            
-                <li><span>02-28</span><a href="/2022/02/28/Clear-Git-Commit/" >如何清除Git所有历史提交记录</a></li>
-            
-                <li><span>02-26</span><a href="/2022/02/26/Batch-file-include-external-variables/" >Batch file include external file for variables</a></li>
-            
-                <li><span>02-23</span><a href="/2022/02/23/Oracle-Database-Install/" >Oracle数据库安装的解决方案</a></li>
-            
-                <li><span>02-06</span><a href="/2022/02/06/beamer-template/" >如何创建Beamer样式模板</a></li>
-            
-                <li><span>02-05</span><a href="/2022/02/05/Share-SSH-Key/" >多台电脑共用SSH Key</a></li>
-            
-            </ul>
-        
-            <h2>2021</h2>
-            <ul>
-            
-                <li><span>10-20</span><a href="/2021/10/20/Cpp-pass-variable-name-as-string/" >C++中将变量名作为字符串传递的解决方案</a></li>
-            
-                <li><span>10-19</span><a href="/2021/10/19/CMake-Configuration/" >CMake Configuration</a></li>
-            
-                <li><span>10-19</span><a href="/2021/10/19/Cpp-format/" >CMakeLists.txt格式和.h头文件的格式</a></li>
-            
-                <li><span>10-19</span><a href="/2021/10/19/Plugins-List/" >Useful Plugins for JetBrains IDE</a></li>
-            
-                <li><span>10-17</span><a href="/2021/10/17/gdb-debug/" >Debug with GDB</a></li>
-            
-                <li><span>10-17</span><a href="/2021/10/17/Surface-Pen/" >All JetBrains IDEs are not responding properly to touch and Surface Pen input.</a></li>
-            
-                <li><span>10-10</span><a href="/2021/10/10/Clion-cannot-kill-process/" >Clion Failed to Kill Process</a></li>
-            
-                <li><span>05-24</span><a href="/2021/05/24/Attention-For-Microsoft-Wireless-Display-Adapter/" >Attention for MS Wireless Display Adapter</a></li>
-            
-            </ul>
-        
-    </article>
-</section>
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>
             <div class="nexmoe-post-right">
               <div class="nexmoe-fixed">
                   <div class="nexmoe-tool"> 
@@ -440,7 +311,7 @@
 
  
 
-<script async src="/js/app.js?v=1678960456362"></script>
+<script async src="/js/app.js?v=1678960456370"></script>
 
 
 

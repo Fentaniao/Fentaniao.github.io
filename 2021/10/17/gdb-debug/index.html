@@ -4,7 +4,7 @@
 
 <head>
     
-    <title>GDB调试 - Knowledge Base</title>
+    <title>Debug with GDB - Knowledge Base</title>
     <meta charset="UTF-8">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -12,25 +12,25 @@
     
 
     <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="Clion中，通过GDB调试C++程序。">
+    <meta name="description" content="Debugging C++ Code with GDB in Clion">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GDB调试">
+<meta property="og:title" content="Debug with GDB">
 <meta property="og:url" content="https://fentaniao.github.io/2021/10/17/gdb-debug/index.html">
 <meta property="og:site_name" content="Knowledge Base">
-<meta property="og:description" content="Clion中，通过GDB调试C++程序。">
+<meta property="og:description" content="Debugging C++ Code with GDB in Clion">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-17T15:49:00.000Z">
-<meta property="article:modified_time" content="2022-03-10T02:04:19.431Z">
+<meta property="article:modified_time" content="2023-03-16T07:16:34.998Z">
 <meta property="article:author" content="Fentaniao">
 <meta property="article:tag" content="Clion">
 <meta property="article:tag" content="IDE">
 <meta property="article:tag" content="JetBrains">
 <meta name="twitter:card" content="summary">
-    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1646878312011">
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css?v=1678960456402">
     
-    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1646878312011">
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1646878312011">
-    <link rel="stylesheet" href="/css/style.css?v=1646878312011">
+    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1678960456402">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1678960456402">
+    <link rel="stylesheet" href="/css/style.css?v=1678960456402">
      
     
         <link rel="stylesheet" href="/custom.css">
@@ -58,9 +58,9 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>15</div>
-        <div><span>标签</span>11</div>
-        <div><span>分类</span>7</div>
+        <div><span>文章</span>19</div>
+        <div><span>标签</span>13</div>
+        <div><span>分类</span>8</div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
@@ -137,6 +137,13 @@
         
 
         <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
           <a class="category-list-link" href="/categories/Git/">Git</a>
           <span class="category-list-count">2</span>
         </li>
@@ -159,7 +166,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/SQL/">SQL</a>
-          <span class="category-list-count">3</span>
+          <span class="category-list-count">6</span>
         </li>
 
         
@@ -187,7 +194,7 @@
     
   <div class="nexmoe-widget-wrap">
     <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="/tags/Beamer/" style="font-size: 10px;">Beamer</a> <a href="/tags/Clion/" style="font-size: 15px;">Clion</a> <a href="/tags/DataGrip/" style="font-size: 12.5px;">DataGrip</a> <a href="/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/tags/IDE/" style="font-size: 20px;">IDE</a> <a href="/tags/JetBrains/" style="font-size: 17.5px;">JetBrains</a> <a href="/tags/Jetbrains/" style="font-size: 10px;">Jetbrains</a> <a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a> <a href="/tags/Plugins/" style="font-size: 10px;">Plugins</a> <a href="/tags/Surface/" style="font-size: 12.5px;">Surface</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a>
+      <a href="/tags/Beamer/" style="font-size: 10px;">Beamer</a> <a href="/tags/Clion/" style="font-size: 15px;">Clion</a> <a href="/tags/DataGrip/" style="font-size: 12.5px;">DataGrip</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/tags/IDE/" style="font-size: 20px;">IDE</a> <a href="/tags/JetBrains/" style="font-size: 17.5px;">JetBrains</a> <a href="/tags/Jetbrains/" style="font-size: 10px;">Jetbrains</a> <a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a> <a href="/tags/Plugins/" style="font-size: 10px;">Plugins</a> <a href="/tags/Surface/" style="font-size: 12.5px;">Surface</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/wsl2/" style="font-size: 10px;">wsl2</a>
     </div>
     
   </div>
@@ -195,7 +202,7 @@
     
 </aside>
     <div class="nexmoe-copyright">
-        &copy; 2022 Fentaniao
+        &copy; 2023 Fentaniao
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
         & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
         <br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -209,23 +216,49 @@
   <article>
       
           <div class="nexmoe-post-cover" style="padding-bottom: 44.44444444444444%;"> 
-              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="GDB调试" class="lazyload">
-              <h1>GDB调试</h1>
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Debug with GDB" class="lazyload">
+              <h1>Debug with GDB</h1>
           </div>
       
       
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2021年10月17日</a>
-    <a><i class="nexmoefont icon-areachart"></i>18 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>579 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
 </div>
 
       
 
-      <p>Clion中，通过GDB调试C++程序。</p>
+      <p>Debugging C++ Code with GDB in Clion</p>
 <span id="more"></span>
 
-<p><a href="gdb-debug.pdf">点击此处查看或下载</a></p>
+<p>Debugging is an essential part of the software development process. Finding and fixing bugs can be a challenging task, especially when dealing with large codebases. Luckily, there are tools available that can make this process more manageable. One such tool is GDB, a powerful and flexible debugger that can help you track down and fix issues in your C++ code. In this blog post, we will explore how to use GDB to debug C++ code in Clion.</p>
+<h2 id="What-is-GDB"><a href="#What-is-GDB" class="headerlink" title="What is GDB?"></a>What is GDB?</h2><p>GDB (GNU Debugger) is a command-line debugger that allows you to examine and modify the state of a running program. It is particularly useful for debugging C and C++ programs, as it can help you find memory errors, race conditions, and other issues that can cause your code to crash or behave unexpectedly. GDB provides a range of features, including breakpoints, watchpoints, and the ability to inspect memory and registers. With these tools, you can step through your code line by line, examining the values of variables and data structures as you go.</p>
+<h2 id="Setting-up-GDB-in-Clion"><a href="#Setting-up-GDB-in-Clion" class="headerlink" title="Setting up GDB in Clion"></a>Setting up GDB in Clion</h2><p>Clion is a popular Integrated Development Environment (IDE) for C++ programmers, and it provides built-in support for GDB debugging. To use GDB in Clion, you will need to configure your project settings to enable debugging. Here’s how to do it:</p>
+<ol>
+<li>Open your C++ project in Clion.</li>
+<li>Click on “Run” in the main menu, then select “Edit Configurations…”</li>
+<li>In the “Run&#x2F;Debug Configurations” window, click on the “+” icon and select “GDB Remote Debug” from the list.</li>
+<li>Enter a name for your configuration (e.g., “Debug”), then configure the following settings:<ul>
+<li>Target: Select the executable file that you want to debug.</li>
+<li>Host: Leave this set to “localhost” unless you are debugging on a remote machine.</li>
+<li>Port: Enter the port number that GDB should use to communicate with the debugger. The default is 1234.</li>
+<li>Debugger: Select “GDB” from the list.</li>
+<li>GDB debugger path: Enter the path to your GDB executable. This should be the path to the GDB binary file on your system.</li>
+<li>GDB command set: Leave this set to “mi”.</li>
+<li>GDB startup commands: You can enter any additional GDB commands that you want to run when the debugger starts up. For example, you might want to set a breakpoint at a specific function or line of code.</li>
+</ul>
+</li>
+<li>Click “OK” to save your configuration.</li>
+</ol>
+<h2 id="Debugging-with-GDB"><a href="#Debugging-with-GDB" class="headerlink" title="Debugging with GDB"></a>Debugging with GDB</h2><p>Now that you have set up your project to use GDB, you can start debugging your code. Here are some basic steps to get you started:</p>
+<ol>
+<li>Set a breakpoint: Click on the line number in your code where you want to set a breakpoint. A red circle will appear next to the line number to indicate that a breakpoint has been set.</li>
+<li>Start the debugger: Click on the “Debug” button in the main toolbar to start the debugger. This will launch your program and pause execution at the first breakpoint that is encountered.</li>
+<li>Examine variables: While your program is paused, you can examine the values of variables and data structures by hovering your mouse over them or by clicking on them in the “Variables” window.</li>
+<li>Step through your code: Use the “Step Over” and “Step Into” buttons to step through your code line by line. The “Step Over” button will execute the current line of code and move to the next line, while the “Step Into” button will move into any function calls that are encountered.</li>
+<li>Continue execution</li>
+</ol>
 
   </article>
 
@@ -288,7 +321,7 @@
 
  
 
-<script async src="/js/app.js?v=1646878312012"></script>
+<script async src="/js/app.js?v=1678960456404"></script>
 
 
 
